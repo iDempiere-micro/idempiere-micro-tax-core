@@ -44,7 +44,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
    * @return MTax
    */
   public static MTax[] getAll(Properties ctx) {
-    int AD_Client_ID = Env.getADClientID(ctx);
+    int AD_Client_ID = Env.getClientId(ctx);
     MTax[] retValue = (MTax[]) s_cacheAll.get(AD_Client_ID);
     if (retValue != null) return retValue;
 
@@ -146,7 +146,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
     // FR: [ 2214883 ] Remove SQL code and Replace for Query - red1
     final String whereClause = I_C_Tax.COLUMNNAME_Parent_Tax_ID + "=?";
     List<MTax> list =
-        new Query(getCtx(), I_C_Tax.Table_Name, whereClause, get_TrxName())
+        new Query(getCtx(), I_C_Tax.Table_Name, whereClause, null)
             .setParameters(getC_Tax_ID())
             .setOnlyActiveRecords(true)
             .list();
@@ -169,7 +169,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
     // FR: [ 2214883 ] Remove SQL code and Replace for Query - red1
     final String whereClause = MTaxPostal.COLUMNNAME_C_Tax_ID + "=?";
     List<MTaxPostal> list =
-        new Query(getCtx(), I_C_TaxPostal.Table_Name, whereClause, get_TrxName())
+        new Query(getCtx(), I_C_TaxPostal.Table_Name, whereClause, null)
             .setParameters(getC_Tax_ID())
             .setOnlyActiveRecords(true)
             .setOrderBy(I_C_TaxPostal.COLUMNNAME_Postal + ", " + I_C_TaxPostal.COLUMNNAME_Postal_To)
@@ -290,7 +290,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
               + "<>? AND "
               + "IsDefault='Y'";
       List<MTax> list =
-          new Query(getCtx(), I_C_Tax.Table_Name, whereClause, get_TrxName())
+          new Query(getCtx(), I_C_Tax.Table_Name, whereClause, null)
               .setParameters(getC_TaxCategory_ID(), getC_Tax_ID())
               .setOnlyActiveRecords(true)
               .list();

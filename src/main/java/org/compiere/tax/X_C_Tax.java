@@ -56,7 +56,7 @@ public class X_C_Tax extends PO implements I_Persistent {
   public org.compiere.model.I_AD_Rule getAD_Rule() throws RuntimeException {
     return (org.compiere.model.I_AD_Rule)
         MTable.get(getCtx(), org.compiere.model.I_AD_Rule.Table_Name)
-            .getPO(getAD_Rule_ID(), get_TrxName());
+            .getPO(getAD_Rule_ID(), null);
   }
 
   /**
@@ -83,7 +83,7 @@ public class X_C_Tax extends PO implements I_Persistent {
   public org.compiere.model.I_C_CountryGroup getC_CountryGroupFrom() throws RuntimeException {
     return (org.compiere.model.I_C_CountryGroup)
         MTable.get(getCtx(), org.compiere.model.I_C_CountryGroup.Table_Name)
-            .getPO(getC_CountryGroupFrom_ID(), get_TrxName());
+            .getPO(getC_CountryGroupFrom_ID(), null);
   }
 
   /**
@@ -111,7 +111,7 @@ public class X_C_Tax extends PO implements I_Persistent {
   public org.compiere.model.I_C_CountryGroup getC_CountryGroupTo() throws RuntimeException {
     return (org.compiere.model.I_C_CountryGroup)
         MTable.get(getCtx(), org.compiere.model.I_C_CountryGroup.Table_Name)
-            .getPO(getC_CountryGroupTo_ID(), get_TrxName());
+            .getPO(getC_CountryGroupTo_ID(), null);
   }
 
   /**
@@ -159,7 +159,7 @@ public class X_C_Tax extends PO implements I_Persistent {
   public org.compiere.model.I_C_Region getC_Region() throws RuntimeException {
     return (org.compiere.model.I_C_Region)
         MTable.get(getCtx(), org.compiere.model.I_C_Region.Table_Name)
-            .getPO(getC_Region_ID(), get_TrxName());
+            .getPO(getC_Region_ID(), null);
   }
 
   /**
@@ -186,7 +186,7 @@ public class X_C_Tax extends PO implements I_Persistent {
   public org.compiere.model.I_C_TaxCategory getC_TaxCategory() throws RuntimeException {
     return (org.compiere.model.I_C_TaxCategory)
         MTable.get(getCtx(), org.compiere.model.I_C_TaxCategory.Table_Name)
-            .getPO(getC_TaxCategory_ID(), get_TrxName());
+            .getPO(getC_TaxCategory_ID(), null);
   }
 
   /**
@@ -234,7 +234,7 @@ public class X_C_Tax extends PO implements I_Persistent {
   public org.compiere.model.I_C_TaxProvider getC_TaxProvider() throws RuntimeException {
     return (org.compiere.model.I_C_TaxProvider)
         MTable.get(getCtx(), org.compiere.model.I_C_TaxProvider.Table_Name)
-            .getPO(getC_TaxProvider_ID(), get_TrxName());
+            .getPO(getC_TaxProvider_ID(), null);
   }
 
   /**
@@ -439,7 +439,7 @@ public class X_C_Tax extends PO implements I_Persistent {
   public org.compiere.model.I_C_Tax getParent_Tax() throws RuntimeException {
     return (org.compiere.model.I_C_Tax)
         MTable.get(getCtx(), org.compiere.model.I_C_Tax.Table_Name)
-            .getPO(getParent_Tax_ID(), get_TrxName());
+            .getPO(getParent_Tax_ID(), null);
   }
 
   /**
@@ -575,7 +575,7 @@ public class X_C_Tax extends PO implements I_Persistent {
   public org.compiere.model.I_C_Region getTo_Region() throws RuntimeException {
     return (org.compiere.model.I_C_Region)
         MTable.get(getCtx(), org.compiere.model.I_C_Region.Table_Name)
-            .getPO(getTo_Region_ID(), get_TrxName());
+            .getPO(getTo_Region_ID(), null);
   }
 
   /**

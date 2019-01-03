@@ -53,22 +53,23 @@
             <version>1.5</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.github.iDempiere-micro</groupId>
-            <artifactId>idempiere-micro-model-interfaces</artifactId>
-            <version>0.0.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.iDempiere-micro</groupId>
-            <artifactId>idempiere-micro-model-core</artifactId>
-            <version>0.0.5</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.iDempiere-micro</groupId>
-            <artifactId>idempiere-micro-crm-core</artifactId>
-            <version>0.0.3</version>
-        </dependency>
+	<dependency>
+	    <groupId>com.github.iDempiere-micro</groupId>
+	    <artifactId>idempiere-micro-model-interfaces</artifactId>
+	    <version>0.1.1</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>com.github.iDempiere-micro</groupId>
+	    <artifactId>idempiere-micro-model-core</artifactId>
+	    <version>0.1.1</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>com.github.iDempiere-micro</groupId>
+	    <artifactId>idempiere-micro-crm-core</artifactId>
+	    <version>0.1.1</version>
+	</dependency>
 
     </dependencies>
 

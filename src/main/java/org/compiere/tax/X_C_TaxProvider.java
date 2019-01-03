@@ -87,7 +87,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider, I_Persistent
   public org.compiere.model.I_C_TaxProviderCfg getC_TaxProviderCfg() throws RuntimeException {
     return (org.compiere.model.I_C_TaxProviderCfg)
         MTable.get(getCtx(), org.compiere.model.I_C_TaxProviderCfg.Table_Name)
-            .getPO(getC_TaxProviderCfg_ID(), get_TrxName());
+            .getPO(getC_TaxProviderCfg_ID(), null);
   }
 
   /**
