@@ -2,7 +2,6 @@ package org.compiere.tax;
 
 import org.compiere.model.HasName;
 import org.compiere.model.I_C_Tax;
-import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 import org.idempiere.common.util.Env;
 import org.idempiere.common.util.KeyNamePair;
@@ -53,51 +52,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     return "X_C_Tax[" + getId() + "]";
   }
 
-  public org.compiere.model.I_AD_Rule getAD_Rule() throws RuntimeException {
-    return (org.compiere.model.I_AD_Rule)
-        MTable.get(getCtx(), org.compiere.model.I_AD_Rule.Table_Name)
-            .getPO(getAD_Rule_ID(), null);
-  }
-
-  /**
-   * Set Rule.
-   *
-   * @param AD_Rule_ID Rule
-   */
-  public void setAD_Rule_ID(int AD_Rule_ID) {
-    if (AD_Rule_ID < 1) set_Value(I_C_Tax.COLUMNNAME_AD_Rule_ID, null);
-    else set_Value(I_C_Tax.COLUMNNAME_AD_Rule_ID, AD_Rule_ID);
-  }
-
-  /**
-   * Get Rule.
-   *
-   * @return Rule
-   */
-  public int getAD_Rule_ID() {
-    Integer ii = (Integer) get_Value(I_C_Tax.COLUMNNAME_AD_Rule_ID);
-    if (ii == null) return 0;
-    return ii;
-  }
-
-  public org.compiere.model.I_C_CountryGroup getC_CountryGroupFrom() throws RuntimeException {
-    return (org.compiere.model.I_C_CountryGroup)
-        MTable.get(getCtx(), org.compiere.model.I_C_CountryGroup.Table_Name)
-            .getPO(getC_CountryGroupFrom_ID(), null);
-  }
-
-  /**
-   * Set Country Group From.
-   *
-   * @param C_CountryGroupFrom_ID Country Group From
-   */
-  public void setC_CountryGroupFrom_ID(int C_CountryGroupFrom_ID) {
-    if (C_CountryGroupFrom_ID < 1) set_Value(I_C_Tax.COLUMNNAME_C_CountryGroupFrom_ID, null);
-    else
-      set_Value(I_C_Tax.COLUMNNAME_C_CountryGroupFrom_ID, C_CountryGroupFrom_ID);
-  }
-
-  /**
+    /**
    * Get Country Group From.
    *
    * @return Country Group From
@@ -108,23 +63,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     return ii;
   }
 
-  public org.compiere.model.I_C_CountryGroup getC_CountryGroupTo() throws RuntimeException {
-    return (org.compiere.model.I_C_CountryGroup)
-        MTable.get(getCtx(), org.compiere.model.I_C_CountryGroup.Table_Name)
-            .getPO(getC_CountryGroupTo_ID(), null);
-  }
-
-  /**
-   * Set Country Group To.
-   *
-   * @param C_CountryGroupTo_ID Country Group To
-   */
-  public void setC_CountryGroupTo_ID(int C_CountryGroupTo_ID) {
-    if (C_CountryGroupTo_ID < 1) set_Value(I_C_Tax.COLUMNNAME_C_CountryGroupTo_ID, null);
-    else set_Value(I_C_Tax.COLUMNNAME_C_CountryGroupTo_ID, C_CountryGroupTo_ID);
-  }
-
-  /**
+    /**
    * Get Country Group To.
    *
    * @return Country Group To
@@ -156,23 +95,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     return ii;
   }
 
-  public org.compiere.model.I_C_Region getC_Region() throws RuntimeException {
-    return (org.compiere.model.I_C_Region)
-        MTable.get(getCtx(), org.compiere.model.I_C_Region.Table_Name)
-            .getPO(getC_Region_ID(), null);
-  }
-
-  /**
-   * Set Region.
-   *
-   * @param C_Region_ID Identifies a geographical Region
-   */
-  public void setC_Region_ID(int C_Region_ID) {
-    if (C_Region_ID < 1) set_Value(I_C_Tax.COLUMNNAME_C_Region_ID, null);
-    else set_Value(I_C_Tax.COLUMNNAME_C_Region_ID, C_Region_ID);
-  }
-
-  /**
+    /**
    * Get Region.
    *
    * @return Identifies a geographical Region
@@ -183,13 +106,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     return ii;
   }
 
-  public org.compiere.model.I_C_TaxCategory getC_TaxCategory() throws RuntimeException {
-    return (org.compiere.model.I_C_TaxCategory)
-        MTable.get(getCtx(), org.compiere.model.I_C_TaxCategory.Table_Name)
-            .getPO(getC_TaxCategory_ID(), null);
-  }
-
-  /**
+    /**
    * Set Tax Category.
    *
    * @param C_TaxCategory_ID Tax Category
@@ -210,17 +127,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     return ii;
   }
 
-  /**
-   * Set Tax.
-   *
-   * @param C_Tax_ID Tax identifier
-   */
-  public void setC_Tax_ID(int C_Tax_ID) {
-    if (C_Tax_ID < 1) set_ValueNoCheck(I_C_Tax.COLUMNNAME_C_Tax_ID, null);
-    else set_ValueNoCheck(I_C_Tax.COLUMNNAME_C_Tax_ID, C_Tax_ID);
-  }
-
-  /**
+    /**
    * Get Tax.
    *
    * @return Tax identifier
@@ -231,23 +138,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     return ii;
   }
 
-  public org.compiere.model.I_C_TaxProvider getC_TaxProvider() throws RuntimeException {
-    return (org.compiere.model.I_C_TaxProvider)
-        MTable.get(getCtx(), org.compiere.model.I_C_TaxProvider.Table_Name)
-            .getPO(getC_TaxProvider_ID(), null);
-  }
-
-  /**
-   * Set Tax Provider.
-   *
-   * @param C_TaxProvider_ID Tax Provider
-   */
-  public void setC_TaxProvider_ID(int C_TaxProvider_ID) {
-    if (C_TaxProvider_ID < 1) set_Value(I_C_Tax.COLUMNNAME_C_TaxProvider_ID, null);
-    else set_Value(I_C_Tax.COLUMNNAME_C_TaxProvider_ID, C_TaxProvider_ID);
-  }
-
-  /**
+    /**
    * Get Tax Provider.
    *
    * @return Tax Provider
@@ -258,43 +149,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     return ii;
   }
 
-  /**
-   * Set C_Tax_UU.
-   *
-   * @param C_Tax_UU C_Tax_UU
-   */
-  public void setC_Tax_UU(String C_Tax_UU) {
-    set_Value(I_C_Tax.COLUMNNAME_C_Tax_UU, C_Tax_UU);
-  }
-
-  /**
-   * Get C_Tax_UU.
-   *
-   * @return C_Tax_UU
-   */
-  public String getC_Tax_UU() {
-    return (String) get_Value(I_C_Tax.COLUMNNAME_C_Tax_UU);
-  }
-
-  /**
-   * Set Description.
-   *
-   * @param Description Optional short description of the record
-   */
-  public void setDescription(String Description) {
-    set_Value(I_C_Tax.COLUMNNAME_Description, Description);
-  }
-
-  /**
-   * Get Description.
-   *
-   * @return Optional short description of the record
-   */
-  public String getDescription() {
-    return (String) get_Value(I_C_Tax.COLUMNNAME_Description);
-  }
-
-  /**
+    /**
    * Set Default.
    *
    * @param IsDefault Default value
@@ -349,21 +204,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     set_Value(I_C_Tax.COLUMNNAME_IsSalesTax, IsSalesTax);
   }
 
-  /**
-   * Get Sales Tax.
-   *
-   * @return This is a sales tax (i.e. not a value added tax)
-   */
-  public boolean isSalesTax() {
-    Object oo = get_Value(I_C_Tax.COLUMNNAME_IsSalesTax);
-    if (oo != null) {
-      if (oo instanceof Boolean) return ((Boolean) oo);
-      return "Y".equals(oo);
-    }
-    return false;
-  }
-
-  /**
+    /**
    * Set Summary Level.
    *
    * @param IsSummary This is a summary entity
@@ -395,21 +236,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     set_Value(I_C_Tax.COLUMNNAME_IsTaxExempt, IsTaxExempt);
   }
 
-  /**
-   * Get SO Tax exempt.
-   *
-   * @return Business partner is exempt from tax on sales
-   */
-  public boolean isTaxExempt() {
-    Object oo = get_Value(I_C_Tax.COLUMNNAME_IsTaxExempt);
-    if (oo != null) {
-      if (oo instanceof Boolean) return ((Boolean) oo);
-      return "Y".equals(oo);
-    }
-    return false;
-  }
-
-  /**
+    /**
    * Set Name.
    *
    * @param Name Alphanumeric identifier of the entity
@@ -427,32 +254,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     return (String) get_Value(HasName.Companion.getCOLUMNNAME_Name());
   }
 
-  /**
-   * Get Record ID/ColumnName
-   *
-   * @return ID/ColumnName pair
-   */
-  public KeyNamePair getKeyNamePair() {
-    return new KeyNamePair(getId(), getName());
-  }
-
-  public org.compiere.model.I_C_Tax getParent_Tax() throws RuntimeException {
-    return (org.compiere.model.I_C_Tax)
-        MTable.get(getCtx(), org.compiere.model.I_C_Tax.Table_Name)
-            .getPO(getParent_Tax_ID(), null);
-  }
-
-  /**
-   * Set Parent Tax.
-   *
-   * @param Parent_Tax_ID Parent Tax indicates a tax that is made up of multiple taxes
-   */
-  public void setParent_Tax_ID(int Parent_Tax_ID) {
-    if (Parent_Tax_ID < 1) set_Value(I_C_Tax.COLUMNNAME_Parent_Tax_ID, null);
-    else set_Value(I_C_Tax.COLUMNNAME_Parent_Tax_ID, Parent_Tax_ID);
-  }
-
-  /**
+    /**
    * Get Parent Tax.
    *
    * @return Parent Tax indicates a tax that is made up of multiple taxes
@@ -492,23 +294,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     set_Value(I_C_Tax.COLUMNNAME_RequiresTaxCertificate, RequiresTaxCertificate);
   }
 
-  /**
-   * Get Requires Tax Certificate.
-   *
-   * @return This tax rate requires the Business Partner to be tax exempt
-   */
-  public boolean isRequiresTaxCertificate() {
-    Object oo = get_Value(I_C_Tax.COLUMNNAME_RequiresTaxCertificate);
-    if (oo != null) {
-      if (oo instanceof Boolean) return ((Boolean) oo);
-      return "Y".equals(oo);
-    }
-    return false;
-  }
-
-  /** SOPOType AD_Reference_ID=287 */
-  public static final int SOPOTYPE_AD_Reference_ID = 287;
-  /** Both = B */
+    /** Both = B */
   public static final String SOPOTYPE_Both = "B";
   /** Sales Tax = S */
   public static final String SOPOTYPE_SalesTax = "S";
@@ -533,25 +319,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     return (String) get_Value(I_C_Tax.COLUMNNAME_SOPOType);
   }
 
-  /**
-   * Set Tax Indicator.
-   *
-   * @param TaxIndicator Short form for Tax to be printed on documents
-   */
-  public void setTaxIndicator(String TaxIndicator) {
-    set_Value(I_C_Tax.COLUMNNAME_TaxIndicator, TaxIndicator);
-  }
-
-  /**
-   * Get Tax Indicator.
-   *
-   * @return Short form for Tax to be printed on documents
-   */
-  public String getTaxIndicator() {
-    return (String) get_Value(I_C_Tax.COLUMNNAME_TaxIndicator);
-  }
-
-  /**
+    /**
    * Set To.
    *
    * @param To_Country_ID Receiving Country
@@ -572,23 +340,7 @@ public class X_C_Tax extends PO implements I_Persistent {
     return ii;
   }
 
-  public org.compiere.model.I_C_Region getTo_Region() throws RuntimeException {
-    return (org.compiere.model.I_C_Region)
-        MTable.get(getCtx(), org.compiere.model.I_C_Region.Table_Name)
-            .getPO(getTo_Region_ID(), null);
-  }
-
-  /**
-   * Set To.
-   *
-   * @param To_Region_ID Receiving Region
-   */
-  public void setTo_Region_ID(int To_Region_ID) {
-    if (To_Region_ID < 1) set_Value(I_C_Tax.COLUMNNAME_To_Region_ID, null);
-    else set_Value(I_C_Tax.COLUMNNAME_To_Region_ID, To_Region_ID);
-  }
-
-  /**
+    /**
    * Get To.
    *
    * @return Receiving Region

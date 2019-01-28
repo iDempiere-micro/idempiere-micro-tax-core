@@ -28,11 +28,7 @@ public class MTaxProvider extends X_C_TaxProvider {
     return getC_TaxProviderCfg().getTaxProviderClass();
   }
 
-  public String getURL() {
-    return getC_TaxProviderCfg().getURL();
-  }
-
-  /**
+    /**
    * Get tax provider instance
    *
    * @param provider
