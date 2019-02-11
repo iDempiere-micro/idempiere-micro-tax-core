@@ -241,7 +241,7 @@ public class Tax {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
     try {
-      pstmt = prepareStatement(sql, trxName);
+      pstmt = prepareStatement(sql);
       pstmt.setInt(1, M_Warehouse_ID);
       pstmt.setInt(2, C_Charge_ID);
       pstmt.setInt(3, AD_Org_ID);
@@ -260,7 +260,6 @@ public class Tax {
         shipToC_Location_ID = rs.getInt(7);
         found = true;
       }
-      close(rs, pstmt);
       //
       if (!found) {
         throw new TaxForChangeNotFoundException(
@@ -276,7 +275,6 @@ public class Tax {
     } catch (SQLException e) {
       throw new DBException(e, sql);
     } finally {
-      close(rs, pstmt);
       rs = null;
       pstmt = null;
     }
@@ -414,7 +412,7 @@ public class Tax {
               + " AND o.AD_Org_ID=?"
               + " AND il.C_BPartner_Location_ID=?"
               + " AND sl.C_BPartner_Location_ID=?";
-      pstmt = prepareStatement(sql, trxName);
+      pstmt = prepareStatement(sql);
       pstmt.setInt(1, M_Warehouse_ID);
       pstmt.setInt(2, M_Product_ID);
       pstmt.setInt(3, AD_Org_ID);
@@ -433,7 +431,6 @@ public class Tax {
         shipToC_Location_ID = rs.getInt(7);
         found = true;
       }
-      close(rs, pstmt);
       //
       if (found && "Y".equals(IsTaxExempt)) {
         if (log.isLoggable(Level.FINE)) log.fine("getProduct - Business Partner is Tax exempt");
@@ -502,7 +499,7 @@ public class Tax {
               + " FROM C_BPartner_Location l"
               + " INNER JOIN C_BPartner b ON (l.C_BPartner_ID=b.C_BPartner_ID) "
               + " WHERE C_BPartner_Location_ID=?";
-      pstmt = prepareStatement(sql, trxName);
+      pstmt = prepareStatement(sql);
       pstmt.setInt(1, billC_BPartner_Location_ID);
       rs = pstmt.executeQuery();
       found = false;
@@ -513,7 +510,6 @@ public class Tax {
         IsTaxExempt = IsSOTrx ? IsSOTaxExempt : IsPOTaxExempt;
         found = true;
       }
-      close(rs, pstmt);
       if (billToC_Location_ID <= 0) {
         throw new TaxCriteriaNotFoundException(variable, billC_BPartner_Location_ID);
       }
@@ -563,7 +559,6 @@ public class Tax {
     } catch (SQLException e) {
       throw new DBException(e, sql);
     } finally {
-      close(rs, pstmt);
       rs = null;
       pstmt = null;
     }
