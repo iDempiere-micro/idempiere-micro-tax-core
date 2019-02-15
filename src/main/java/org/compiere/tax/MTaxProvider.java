@@ -16,12 +16,12 @@ public class MTaxProvider extends X_C_TaxProvider {
   /** */
   private static final long serialVersionUID = 6621828279540899973L;
 
-  public MTaxProvider(Properties ctx, int C_TaxProvider_ID, String trxName) {
-    super(ctx, C_TaxProvider_ID, trxName);
+  public MTaxProvider(Properties ctx, int C_TaxProvider_ID) {
+    super(ctx, C_TaxProvider_ID);
   }
 
-  public MTaxProvider(Properties ctx, ResultSet rs, String trxName) {
-    super(ctx, rs, trxName);
+  public MTaxProvider(Properties ctx, ResultSet rs) {
+    super(ctx, rs);
   }
 
   public String getTaxProviderClass() {

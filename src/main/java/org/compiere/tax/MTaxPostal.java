@@ -20,8 +20,8 @@ public class MTaxPostal extends X_C_TaxPostal {
    * @param C_TaxPostal_ID id
    * @param trxName transaction
    */
-  public MTaxPostal(Properties ctx, int C_TaxPostal_ID, String trxName) {
-    super(ctx, C_TaxPostal_ID, trxName);
+  public MTaxPostal(Properties ctx, int C_TaxPostal_ID) {
+    super(ctx, C_TaxPostal_ID);
   } //	MTaxPostal
 
   /**
@@ -31,7 +31,7 @@ public class MTaxPostal extends X_C_TaxPostal {
    * @param rs result set
    * @param trxName transaction
    */
-  public MTaxPostal(Properties ctx, ResultSet rs, String trxName) {
-    super(ctx, rs, trxName);
+  public MTaxPostal(Properties ctx, ResultSet rs) {
+    super(ctx, rs);
   } //	MTaxPostal
 } //	MTaxPostal

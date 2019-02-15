@@ -25,8 +25,8 @@ public class MTaxCategory extends X_C_TaxCategory {
    * @param C_TaxCategory_ID id
    * @param trxName trx
    */
-  public MTaxCategory(Properties ctx, int C_TaxCategory_ID, String trxName) {
-    super(ctx, C_TaxCategory_ID, trxName);
+  public MTaxCategory(Properties ctx, int C_TaxCategory_ID) {
+    super(ctx, C_TaxCategory_ID);
     if (C_TaxCategory_ID == 0) {
       //	setName (null);
       setIsDefault(false);
@@ -40,13 +40,13 @@ public class MTaxCategory extends X_C_TaxCategory {
    * @param rs result set
    * @param trxName trx
    */
-  public MTaxCategory(Properties ctx, ResultSet rs, String trxName) {
-    super(ctx, rs, trxName);
+  public MTaxCategory(Properties ctx, ResultSet rs) {
+    super(ctx, rs);
   } //	MTaxCategory
 
   /** getDefaultTax Get the default tax id associated with this tax category */
   public MTax getDefaultTax() {
-    MTax m_tax = new MTax(getCtx(), 0, null);
+    MTax m_tax = new MTax(getCtx(), 0);
 
     final String whereClause =
         I_C_TaxCategory.COLUMNNAME_C_TaxCategory_ID
@@ -54,7 +54,7 @@ public class MTaxCategory extends X_C_TaxCategory {
             + I_C_TaxCategory.COLUMNNAME_IsDefault
             + "='Y'";
     List<MTax> list =
-        new Query(getCtx(), I_C_Tax.Table_Name, whereClause, null)
+        new Query(getCtx(), I_C_Tax.Table_Name, whereClause)
             .setParameters(getC_TaxCategory_ID())
             .setOnlyActiveRecords(true)
             .list();

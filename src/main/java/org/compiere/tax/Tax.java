@@ -131,7 +131,7 @@ public class Tax {
           shipC_BPartner_Location_ID,
           IsSOTrx,
           trxName);
-    else return getExemptTax(ctx, AD_Org_ID, trxName);
+    else return getExemptTax(ctx, AD_Org_ID);
   } //	get
 
   /**
@@ -270,7 +270,7 @@ public class Tax {
             shipC_BPartner_Location_ID,
             null);
       } else if ("Y".equals(IsTaxExempt)) {
-        return getExemptTax(ctx, AD_Org_ID, trxName);
+        return getExemptTax(ctx, AD_Org_ID);
       }
     } catch (SQLException e) {
       throw new DBException(e, sql);
@@ -434,7 +434,7 @@ public class Tax {
       //
       if (found && "Y".equals(IsTaxExempt)) {
         if (log.isLoggable(Level.FINE)) log.fine("getProduct - Business Partner is Tax exempt");
-        return getExemptTax(ctx, AD_Org_ID, trxName);
+        return getExemptTax(ctx, AD_Org_ID);
       } else if (found) {
         if (!IsSOTrx) {
           int temp = billFromC_Location_ID;
@@ -513,7 +513,7 @@ public class Tax {
       if (billToC_Location_ID <= 0) {
         throw new TaxCriteriaNotFoundException(variable, billC_BPartner_Location_ID);
       }
-      if ("Y".equals(IsTaxExempt)) return getExemptTax(ctx, AD_Org_ID, trxName);
+      if ("Y".equals(IsTaxExempt)) return getExemptTax(ctx, AD_Org_ID);
 
       //  Reverse for PO
       if (!IsSOTrx) {
@@ -585,14 +585,14 @@ public class Tax {
    * @return C_Tax_ID
    * @throws TaxNoExemptFoundException if no tax exempt found
    */
-  public static int getExemptTax(Properties ctx, int AD_Org_ID, String trxName) {
+  public static int getExemptTax(Properties ctx, int AD_Org_ID) {
     final String sql =
         "SELECT t.C_Tax_ID "
             + "FROM C_Tax t"
             + " INNER JOIN AD_Org o ON (t.AD_Client_ID=o.AD_Client_ID) "
             + "WHERE t.IsTaxExempt='Y' AND o.AD_Org_ID=? AND t.IsActive='Y' "
             + "ORDER BY t.Rate DESC";
-    int C_Tax_ID = getSQLValueEx(trxName, sql, AD_Org_ID);
+    int C_Tax_ID = getSQLValueEx(sql, AD_Org_ID);
     if (log.isLoggable(Level.FINE)) log.fine("getExemptTax - TaxExempt=Y - C_Tax_ID=" + C_Tax_ID);
     if (C_Tax_ID <= 0) {
       throw new TaxNoExemptFoundException(AD_Org_ID);
@@ -646,8 +646,8 @@ public class Tax {
     }
 
     MTax[] taxes = MTax.getAll(ctx);
-    MLocation lFrom = new MLocation(ctx, billFromC_Location_ID, trxName);
-    MLocation lTo = new MLocation(ctx, billToC_Location_ID, trxName);
+    MLocation lFrom = new MLocation(ctx, billFromC_Location_ID);
+    MLocation lTo = new MLocation(ctx, billToC_Location_ID);
     if (log.isLoggable(Level.FINER)) {
       log.finer("From=" + lFrom);
       log.finer("To=" + lTo);

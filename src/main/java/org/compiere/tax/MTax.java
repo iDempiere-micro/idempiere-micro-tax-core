@@ -51,7 +51,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
     //	Create it
     // FR: [ 2214883 ] Remove SQL code and Replace for Query - red1
     List<MTax> list =
-        new Query(ctx, I_C_Tax.Table_Name, null, null)
+        new Query(ctx, I_C_Tax.Table_Name, null)
             .setClient_ID()
             .setOrderBy(
                 "C_CountryGroupFrom_ID, C_Country_ID, C_Region_ID, C_CountryGroupTo_ID, To_Country_ID, To_Region_ID, ValidFrom DESC")
@@ -73,10 +73,10 @@ public class MTax extends X_C_Tax implements I_C_Tax {
    * @return MTax
    */
   public static MTax get(Properties ctx, int C_Tax_ID) {
-    Integer key = new Integer(C_Tax_ID);
+    Integer key = C_Tax_ID;
     MTax retValue = (MTax) s_cache.get(key);
     if (retValue != null) return retValue;
-    retValue = new MTax(ctx, C_Tax_ID, null);
+    retValue = new MTax(ctx, C_Tax_ID);
     if (retValue.getId() != 0) s_cache.put(key, retValue);
     return retValue;
   } //	get
@@ -88,8 +88,8 @@ public class MTax extends X_C_Tax implements I_C_Tax {
    * @param C_Tax_ID id
    * @param trxName transaction
    */
-  public MTax(Properties ctx, int C_Tax_ID, String trxName) {
-    super(ctx, C_Tax_ID, trxName);
+  public MTax(Properties ctx, int C_Tax_ID) {
+    super(ctx, C_Tax_ID);
     if (C_Tax_ID == 0) {
       //	setC_Tax_ID (0);		PK
       setIsDefault(false);
@@ -113,8 +113,8 @@ public class MTax extends X_C_Tax implements I_C_Tax {
    * @param rs result set
    * @param trxName transaction
    */
-  public MTax(Properties ctx, ResultSet rs, String trxName) {
-    super(ctx, rs, trxName);
+  public MTax(Properties ctx, ResultSet rs) {
+    super(ctx, rs);
   } //	MTax
 
   /**
@@ -126,8 +126,8 @@ public class MTax extends X_C_Tax implements I_C_Tax {
    * @param C_TaxCategory_ID
    * @param trxName transaction
    */
-  public MTax(Properties ctx, String Name, BigDecimal Rate, int C_TaxCategory_ID, String trxName) {
-    this(ctx, 0, trxName);
+  public MTax(Properties ctx, String Name, BigDecimal Rate, int C_TaxCategory_ID) {
+    this(ctx, 0);
     setName(Name);
     setRate(Rate == null ? Env.ZERO : Rate);
     setC_TaxCategory_ID(C_TaxCategory_ID); // 	FK
@@ -146,7 +146,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
     // FR: [ 2214883 ] Remove SQL code and Replace for Query - red1
     final String whereClause = I_C_Tax.COLUMNNAME_Parent_Tax_ID + "=?";
     List<MTax> list =
-        new Query(getCtx(), I_C_Tax.Table_Name, whereClause, null)
+        new Query(getCtx(), I_C_Tax.Table_Name, whereClause)
             .setParameters(getC_Tax_ID())
             .setOnlyActiveRecords(true)
             .list();
@@ -169,7 +169,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
     // FR: [ 2214883 ] Remove SQL code and Replace for Query - red1
     final String whereClause = MTaxPostal.COLUMNNAME_C_Tax_ID + "=?";
     List<MTaxPostal> list =
-        new Query(getCtx(), I_C_TaxPostal.Table_Name, whereClause, null)
+        new Query(getCtx(), I_C_TaxPostal.Table_Name, whereClause)
             .setParameters(getC_Tax_ID())
             .setOnlyActiveRecords(true)
             .setOrderBy(I_C_TaxPostal.COLUMNNAME_Postal + ", " + I_C_TaxPostal.COLUMNNAME_Postal_To)
@@ -290,7 +290,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
               + "<>? AND "
               + "IsDefault='Y'";
       List<MTax> list =
-          new Query(getCtx(), I_C_Tax.Table_Name, whereClause, null)
+          new Query(getCtx(), I_C_Tax.Table_Name, whereClause)
               .setParameters(getC_TaxCategory_ID(), getC_Tax_ID())
               .setOnlyActiveRecords(true)
               .list();

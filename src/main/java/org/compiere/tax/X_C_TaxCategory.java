@@ -19,16 +19,16 @@ public class X_C_TaxCategory extends BasePOName implements I_C_TaxCategory, I_Pe
   private static final long serialVersionUID = 20171031L;
 
   /** Standard Constructor */
-  public X_C_TaxCategory(Properties ctx, int C_TaxCategory_ID, String trxName) {
-    super(ctx, C_TaxCategory_ID, trxName);
+  public X_C_TaxCategory(Properties ctx, int C_TaxCategory_ID) {
+    super(ctx, C_TaxCategory_ID);
     /**
      * if (C_TaxCategory_ID == 0) { setC_TaxCategory_ID (0); setIsDefault (false); setName (null); }
      */
   }
 
   /** Load Constructor */
-  public X_C_TaxCategory(Properties ctx, ResultSet rs, String trxName) {
-    super(ctx, rs, trxName);
+  public X_C_TaxCategory(Properties ctx, ResultSet rs) {
+    super(ctx, rs);
   }
 
   /**
