@@ -10,28 +10,30 @@ import java.util.Properties;
  * @version $Id: MTaxPostal.java,v 1.3 2006/07/30 00:51:02 jjanke Exp $
  */
 public class MTaxPostal extends X_C_TaxPostal {
-  /** */
-  private static final long serialVersionUID = -7048614254051075174L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = -7048614254051075174L;
 
-  /**
-   * Standard Constructor
-   *
-   * @param ctx context
-   * @param C_TaxPostal_ID id
-   * @param trxName transaction
-   */
-  public MTaxPostal(Properties ctx, int C_TaxPostal_ID) {
-    super(ctx, C_TaxPostal_ID);
-  } //	MTaxPostal
+    /**
+     * Standard Constructor
+     *
+     * @param ctx            context
+     * @param C_TaxPostal_ID id
+     * @param trxName        transaction
+     */
+    public MTaxPostal(Properties ctx, int C_TaxPostal_ID) {
+        super(ctx, C_TaxPostal_ID);
+    } //	MTaxPostal
 
-  /**
-   * Load Constructor
-   *
-   * @param ctx context
-   * @param rs result set
-   * @param trxName transaction
-   */
-  public MTaxPostal(Properties ctx, ResultSet rs) {
-    super(ctx, rs);
-  } //	MTaxPostal
+    /**
+     * Load Constructor
+     *
+     * @param ctx     context
+     * @param rs      result set
+     * @param trxName transaction
+     */
+    public MTaxPostal(Properties ctx, ResultSet rs) {
+        super(ctx, rs);
+    } //	MTaxPostal
 } //	MTaxPostal

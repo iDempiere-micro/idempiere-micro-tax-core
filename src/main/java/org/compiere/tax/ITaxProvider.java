@@ -10,20 +10,20 @@ import org.compiere.model.*;
  */
 public interface ITaxProvider {
 
-  boolean calculateOrderTaxTotal(I_C_TaxProvider provider, I_C_Order order);
+    boolean calculateOrderTaxTotal(I_C_TaxProvider provider, I_C_Order order);
 
-  boolean updateOrderTax(I_C_TaxProvider provider, I_C_OrderLine line);
+    boolean updateOrderTax(I_C_TaxProvider provider, I_C_OrderLine line);
 
-  boolean recalculateTax(I_C_TaxProvider provider, I_C_OrderLine line, boolean newRecord);
+    boolean recalculateTax(I_C_TaxProvider provider, I_C_OrderLine line, boolean newRecord);
 
-  boolean updateHeaderTax(I_C_TaxProvider provider, I_C_OrderLine line);
+    boolean updateHeaderTax(I_C_TaxProvider provider, I_C_OrderLine line);
 
-  boolean calculateRMATaxTotal(I_C_TaxProvider provider, I_M_RMA rma);
+    boolean calculateRMATaxTotal(I_C_TaxProvider provider, I_M_RMA rma);
 
-  boolean updateRMATax(I_C_TaxProvider provider, I_M_RMALine line);
+    boolean updateRMATax(I_C_TaxProvider provider, I_M_RMALine line);
 
-  boolean recalculateTax(I_C_TaxProvider provider, I_M_RMALine line, boolean newRecord);
+    boolean recalculateTax(I_C_TaxProvider provider, I_M_RMALine line, boolean newRecord);
 
-  boolean updateHeaderTax(I_C_TaxProvider provider, I_M_RMALine line);
+    boolean updateHeaderTax(I_C_TaxProvider provider, I_M_RMALine line);
 
 }

@@ -15,9 +15,13 @@ class TaxForChangeNotFoundException(
     billC_BPartner_Location_ID: Int,
     shipC_BPartner_Location_ID: Int,
     additionalMsg: String
-) : AdempiereException(buildMessage(C_Charge_ID, AD_Org_ID, M_Warehouse_ID,
-    billC_BPartner_Location_ID, shipC_BPartner_Location_ID,
-    additionalMsg)) {
+) : AdempiereException(
+    buildMessage(
+        C_Charge_ID, AD_Org_ID, M_Warehouse_ID,
+        billC_BPartner_Location_ID, shipC_BPartner_Location_ID,
+        additionalMsg
+    )
+) {
     companion object {
         private val serialVersionUID = 6553174922970467775L
 

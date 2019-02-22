@@ -7,7 +7,8 @@ import org.idempiere.common.exceptions.AdempiereException
  * @author Teo Sarca, www.arhipac.ro
  *  * FR [ 2758097 ] Implement TaxNotFoundException
  */
-class TaxCriteriaNotFoundException(criteriaName: String, criteria_ID: Int) : AdempiereException(buildMessage(criteriaName, criteria_ID)) {
+class TaxCriteriaNotFoundException(criteriaName: String, criteria_ID: Int) :
+    AdempiereException(buildMessage(criteriaName, criteria_ID)) {
     companion object {
         /**
          *
