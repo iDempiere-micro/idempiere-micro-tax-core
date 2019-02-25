@@ -133,7 +133,7 @@ public class Tax {
                     shipC_BPartner_Location_ID,
                     IsSOTrx,
                     trxName);
-        else return getExemptTax(ctx, AD_Org_ID);
+        else return getExemptTax(AD_Org_ID);
     } //	get
 
     /**
@@ -272,7 +272,7 @@ public class Tax {
                         shipC_BPartner_Location_ID,
                         null);
             } else if ("Y".equals(IsTaxExempt)) {
-                return getExemptTax(ctx, AD_Org_ID);
+                return getExemptTax(AD_Org_ID);
             }
         } catch (SQLException e) {
             throw new DBException(e, sql);
@@ -312,8 +312,8 @@ public class Tax {
                 shipToC_Location_ID,
                 billDate,
                 billFromC_Location_ID,
-                billToC_Location_ID,
-                trxName);
+                billToC_Location_ID
+        );
     } //	getCharge
 
     /**
@@ -436,7 +436,7 @@ public class Tax {
             //
             if (found && "Y".equals(IsTaxExempt)) {
                 if (log.isLoggable(Level.FINE)) log.fine("getProduct - Business Partner is Tax exempt");
-                return getExemptTax(ctx, AD_Org_ID);
+                return getExemptTax(AD_Org_ID);
             } else if (found) {
                 if (!IsSOTrx) {
                     int temp = billFromC_Location_ID;
@@ -467,8 +467,8 @@ public class Tax {
                         shipToC_Location_ID,
                         billDate,
                         billFromC_Location_ID,
-                        billToC_Location_ID,
-                        trxName);
+                        billToC_Location_ID
+                );
             }
 
             // ----------------------------------------------------------------
@@ -515,7 +515,7 @@ public class Tax {
             if (billToC_Location_ID <= 0) {
                 throw new TaxCriteriaNotFoundException(variable, billC_BPartner_Location_ID);
             }
-            if ("Y".equals(IsTaxExempt)) return getExemptTax(ctx, AD_Org_ID);
+            if ("Y".equals(IsTaxExempt)) return getExemptTax(AD_Org_ID);
 
             //  Reverse for PO
             if (!IsSOTrx) {
@@ -574,20 +574,19 @@ public class Tax {
                 shipToC_Location_ID,
                 billDate,
                 billFromC_Location_ID,
-                billToC_Location_ID,
-                trxName);
+                billToC_Location_ID
+        );
     } //	getProduct
 
     /**
      * Get Exempt Tax Code
      *
-     * @param ctx       context
-     * @param AD_Org_ID org to find client
      * @param trxName   Transaction
+     * @param AD_Org_ID org to find client
      * @return C_Tax_ID
      * @throws TaxNoExemptFoundException if no tax exempt found
      */
-    public static int getExemptTax(Properties ctx, int AD_Org_ID) {
+    public static int getExemptTax(int AD_Org_ID) {
         final String sql =
                 "SELECT t.C_Tax_ID "
                         + "FROM C_Tax t"
@@ -615,7 +614,6 @@ public class Tax {
      * @param billDate              invoice date
      * @param billFromC_Location_ID invoice from
      * @param billToC_Location_ID   invoice to
-     * @param trxName               Transaction
      * @return C_Tax_ID
      * @throws TaxNotFoundException if no tax found for given criteria
      */
@@ -628,8 +626,7 @@ public class Tax {
             int shipToC_Location_ID,
             Timestamp billDate,
             int billFromC_Location_ID,
-            int billToC_Location_ID,
-            String trxName) {
+            int billToC_Location_ID) {
         //	C_TaxCategory contains CommodityCode
 
         //	API to Tax Vendor comes here

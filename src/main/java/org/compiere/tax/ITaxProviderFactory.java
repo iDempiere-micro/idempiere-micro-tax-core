@@ -7,11 +7,4 @@ package org.compiere.tax;
  */
 public interface ITaxProviderFactory {
 
-    /**
-     * Create new tax provider instance
-     *
-     * @param className
-     * @return tax provider instance
-     */
-    public ITaxProvider newTaxProviderInstance(String className);
 }

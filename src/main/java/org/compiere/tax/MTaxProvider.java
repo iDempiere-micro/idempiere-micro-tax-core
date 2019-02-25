@@ -32,7 +32,6 @@ public class MTaxProvider extends X_C_TaxProvider {
      */
     public static ITaxProvider getTaxProvider(
             MTaxProvider provider, ITaxProvider standardTaxProvider) {
-        ITaxProvider calculator = null;
         if (provider != null) {
             if (provider.getC_TaxProvider_ID() == 0) return standardTaxProvider;
 
@@ -60,7 +59,6 @@ public class MTaxProvider extends X_C_TaxProvider {
      */
     public static IInvoiceTaxProvider getTaxProvider(
             MTaxProvider provider, IInvoiceTaxProvider standardTaxProvider) {
-        IInvoiceTaxProvider calculator = null;
         if (provider != null) {
             if (provider.getC_TaxProvider_ID() == 0) return standardTaxProvider;
 

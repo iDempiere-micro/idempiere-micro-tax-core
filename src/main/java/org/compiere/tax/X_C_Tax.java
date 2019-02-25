@@ -4,7 +4,6 @@ import org.compiere.model.HasName;
 import org.compiere.model.I_C_Tax;
 import org.compiere.orm.PO;
 import org.idempiere.common.util.Env;
-import org.idempiere.orm.I_Persistent;
 
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -17,7 +16,7 @@ import java.util.Properties;
  * @author iDempiere (generated)
  * @version Release 5.1 - $Id$
  */
-public class X_C_Tax extends PO implements I_Persistent {
+public class X_C_Tax extends PO {
 
     /**
      * Both = B
@@ -75,7 +74,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Country Group From
      */
     public int getC_CountryGroupFrom_ID() {
-        Integer ii = (Integer) get_Value(I_C_Tax.COLUMNNAME_C_CountryGroupFrom_ID);
+        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_CountryGroupFrom_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -86,7 +85,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Country Group To
      */
     public int getC_CountryGroupTo_ID() {
-        Integer ii = (Integer) get_Value(I_C_Tax.COLUMNNAME_C_CountryGroupTo_ID);
+        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_CountryGroupTo_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -97,7 +96,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Country
      */
     public int getC_Country_ID() {
-        Integer ii = (Integer) get_Value(I_C_Tax.COLUMNNAME_C_Country_ID);
+        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_Country_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -118,7 +117,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Identifies a geographical Region
      */
     public int getC_Region_ID() {
-        Integer ii = (Integer) get_Value(I_C_Tax.COLUMNNAME_C_Region_ID);
+        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_Region_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -129,7 +128,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Tax Category
      */
     public int getC_TaxCategory_ID() {
-        Integer ii = (Integer) get_Value(I_C_Tax.COLUMNNAME_C_TaxCategory_ID);
+        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_TaxCategory_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -150,7 +149,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Tax identifier
      */
     public int getC_Tax_ID() {
-        Integer ii = (Integer) get_Value(I_C_Tax.COLUMNNAME_C_Tax_ID);
+        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_Tax_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -161,7 +160,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Tax Provider
      */
     public int getC_TaxProvider_ID() {
-        Integer ii = (Integer) get_Value(I_C_Tax.COLUMNNAME_C_TaxProvider_ID);
+        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_TaxProvider_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -181,7 +180,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Default value
      */
     public boolean isDefault() {
-        Object oo = get_Value(I_C_Tax.COLUMNNAME_IsDefault);
+        Object oo = getValue(I_C_Tax.COLUMNNAME_IsDefault);
         if (oo != null) {
             if (oo instanceof Boolean) return ((Boolean) oo);
             return "Y".equals(oo);
@@ -204,7 +203,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Tax is calculated on document level (rather than line by line)
      */
     public boolean isDocumentLevel() {
-        Object oo = get_Value(I_C_Tax.COLUMNNAME_IsDocumentLevel);
+        Object oo = getValue(I_C_Tax.COLUMNNAME_IsDocumentLevel);
         if (oo != null) {
             if (oo instanceof Boolean) return ((Boolean) oo);
             return "Y".equals(oo);
@@ -236,7 +235,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return This is a summary entity
      */
     public boolean isSummary() {
-        Object oo = get_Value(I_C_Tax.COLUMNNAME_IsSummary);
+        Object oo = getValue(I_C_Tax.COLUMNNAME_IsSummary);
         if (oo != null) {
             if (oo instanceof Boolean) return ((Boolean) oo);
             return "Y".equals(oo);
@@ -259,7 +258,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Alphanumeric identifier of the entity
      */
     public String getName() {
-        return (String) get_Value(HasName.Companion.getCOLUMNNAME_Name());
+        return (String) getValue(HasName.Companion.getCOLUMNNAME_Name());
     }
 
     /**
@@ -277,7 +276,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Parent Tax indicates a tax that is made up of multiple taxes
      */
     public int getParent_Tax_ID() {
-        Integer ii = (Integer) get_Value(I_C_Tax.COLUMNNAME_Parent_Tax_ID);
+        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_Parent_Tax_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -288,7 +287,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Rate or Tax or Exchange
      */
     public BigDecimal getRate() {
-        BigDecimal bd = (BigDecimal) get_Value(I_C_Tax.COLUMNNAME_Rate);
+        BigDecimal bd = (BigDecimal) getValue(I_C_Tax.COLUMNNAME_Rate);
         if (bd == null) return Env.ZERO;
         return bd;
     }
@@ -317,7 +316,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Sales Tax applies to sales situations, Purchase Tax to purchase situations
      */
     public String getSOPOType() {
-        return (String) get_Value(I_C_Tax.COLUMNNAME_SOPOType);
+        return (String) getValue(I_C_Tax.COLUMNNAME_SOPOType);
     }
 
     /**
@@ -336,7 +335,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Receiving Country
      */
     public int getTo_Country_ID() {
-        Integer ii = (Integer) get_Value(I_C_Tax.COLUMNNAME_To_Country_ID);
+        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_To_Country_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -357,7 +356,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Receiving Region
      */
     public int getTo_Region_ID() {
-        Integer ii = (Integer) get_Value(I_C_Tax.COLUMNNAME_To_Region_ID);
+        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_To_Region_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -368,7 +367,7 @@ public class X_C_Tax extends PO implements I_Persistent {
      * @return Valid from including this date (first day)
      */
     public Timestamp getValidFrom() {
-        return (Timestamp) get_Value(I_C_Tax.COLUMNNAME_ValidFrom);
+        return (Timestamp) getValue(I_C_Tax.COLUMNNAME_ValidFrom);
     }
 
     /**

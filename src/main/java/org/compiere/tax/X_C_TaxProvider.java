@@ -3,7 +3,6 @@ package org.compiere.tax;
 import org.compiere.model.I_C_TaxProvider;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
-import org.idempiere.orm.I_Persistent;
 
 import java.sql.ResultSet;
 import java.util.Properties;
@@ -14,7 +13,7 @@ import java.util.Properties;
  * @author iDempiere (generated)
  * @version Release 5.1 - $Id$
  */
-public class X_C_TaxProvider extends PO implements I_C_TaxProvider, I_Persistent {
+public class X_C_TaxProvider extends PO implements I_C_TaxProvider {
 
     /**
      *
@@ -65,7 +64,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider, I_Persistent
      * @return Tax Provider Configuration
      */
     public int getC_TaxProviderCfg_ID() {
-        Integer ii = (Integer) get_Value(COLUMNNAME_C_TaxProviderCfg_ID);
+        Integer ii = (Integer) getValue(COLUMNNAME_C_TaxProviderCfg_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -76,7 +75,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider, I_Persistent
      * @return Tax Provider
      */
     public int getC_TaxProvider_ID() {
-        Integer ii = (Integer) get_Value(COLUMNNAME_C_TaxProvider_ID);
+        Integer ii = (Integer) getValue(COLUMNNAME_C_TaxProvider_ID);
         if (ii == null) return 0;
         return ii;
     }

@@ -2,7 +2,6 @@ package org.compiere.tax;
 
 import org.compiere.model.I_C_TaxPostal;
 import org.compiere.orm.PO;
-import org.idempiere.orm.I_Persistent;
 
 import java.sql.ResultSet;
 import java.util.Properties;
@@ -13,7 +12,7 @@ import java.util.Properties;
  * @author iDempiere (generated)
  * @version Release 5.1 - $Id$
  */
-public class X_C_TaxPostal extends PO implements I_C_TaxPostal, I_Persistent {
+public class X_C_TaxPostal extends PO implements I_C_TaxPostal {
 
     /**
      *
@@ -50,23 +49,12 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal, I_Persistent {
     }
 
     /**
-     * Get Tax.
-     *
-     * @return Tax identifier
-     */
-    public int getC_Tax_ID() {
-        Integer ii = (Integer) get_Value(COLUMNNAME_C_Tax_ID);
-        if (ii == null) return 0;
-        return ii;
-    }
-
-    /**
      * Get ZIP.
      *
      * @return Postal code
      */
     public String getPostal() {
-        return (String) get_Value(COLUMNNAME_Postal);
+        return (String) getValue(COLUMNNAME_Postal);
     }
 
     /**
@@ -75,7 +63,7 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal, I_Persistent {
      * @return Postal code to
      */
     public String getPostal_To() {
-        return (String) get_Value(COLUMNNAME_Postal_To);
+        return (String) getValue(COLUMNNAME_Postal_To);
     }
 
     @Override
