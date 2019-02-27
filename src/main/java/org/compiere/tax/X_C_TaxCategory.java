@@ -67,7 +67,7 @@ public class X_C_TaxCategory extends BasePOName implements I_C_TaxCategory {
      * @param IsDefault Default value
      */
     public void setIsDefault(boolean IsDefault) {
-        set_Value(COLUMNNAME_IsDefault, Boolean.valueOf(IsDefault));
+        setValue(COLUMNNAME_IsDefault, Boolean.valueOf(IsDefault));
     }
 
     /**

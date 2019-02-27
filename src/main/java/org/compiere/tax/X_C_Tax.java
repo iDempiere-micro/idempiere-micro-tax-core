@@ -107,8 +107,8 @@ public class X_C_Tax extends PO {
      * @param C_Country_ID Country
      */
     public void setC_Country_ID(int C_Country_ID) {
-        if (C_Country_ID < 1) set_Value(I_C_Tax.COLUMNNAME_C_Country_ID, null);
-        else set_Value(I_C_Tax.COLUMNNAME_C_Country_ID, C_Country_ID);
+        if (C_Country_ID < 1) setValue(I_C_Tax.COLUMNNAME_C_Country_ID, null);
+        else setValue(I_C_Tax.COLUMNNAME_C_Country_ID, C_Country_ID);
     }
 
     /**
@@ -139,8 +139,8 @@ public class X_C_Tax extends PO {
      * @param C_TaxCategory_ID Tax Category
      */
     public void setC_TaxCategory_ID(int C_TaxCategory_ID) {
-        if (C_TaxCategory_ID < 1) set_Value(I_C_Tax.COLUMNNAME_C_TaxCategory_ID, null);
-        else set_Value(I_C_Tax.COLUMNNAME_C_TaxCategory_ID, C_TaxCategory_ID);
+        if (C_TaxCategory_ID < 1) setValue(I_C_Tax.COLUMNNAME_C_TaxCategory_ID, null);
+        else setValue(I_C_Tax.COLUMNNAME_C_TaxCategory_ID, C_TaxCategory_ID);
     }
 
     /**
@@ -171,7 +171,7 @@ public class X_C_Tax extends PO {
      * @param IsDefault Default value
      */
     public void setIsDefault(boolean IsDefault) {
-        set_Value(I_C_Tax.COLUMNNAME_IsDefault, IsDefault);
+        setValue(I_C_Tax.COLUMNNAME_IsDefault, IsDefault);
     }
 
     /**
@@ -194,7 +194,7 @@ public class X_C_Tax extends PO {
      * @param IsDocumentLevel Tax is calculated on document level (rather than line by line)
      */
     public void setIsDocumentLevel(boolean IsDocumentLevel) {
-        set_Value(I_C_Tax.COLUMNNAME_IsDocumentLevel, IsDocumentLevel);
+        setValue(I_C_Tax.COLUMNNAME_IsDocumentLevel, IsDocumentLevel);
     }
 
     /**
@@ -217,7 +217,7 @@ public class X_C_Tax extends PO {
      * @param IsSalesTax This is a sales tax (i.e. not a value added tax)
      */
     public void setIsSalesTax(boolean IsSalesTax) {
-        set_Value(I_C_Tax.COLUMNNAME_IsSalesTax, IsSalesTax);
+        setValue(I_C_Tax.COLUMNNAME_IsSalesTax, IsSalesTax);
     }
 
     /**
@@ -226,7 +226,7 @@ public class X_C_Tax extends PO {
      * @param IsSummary This is a summary entity
      */
     public void setIsSummary(boolean IsSummary) {
-        set_Value(I_C_Tax.COLUMNNAME_IsSummary, IsSummary);
+        setValue(I_C_Tax.COLUMNNAME_IsSummary, IsSummary);
     }
 
     /**
@@ -249,7 +249,7 @@ public class X_C_Tax extends PO {
      * @param IsTaxExempt Business partner is exempt from tax on sales
      */
     public void setIsTaxExempt(boolean IsTaxExempt) {
-        set_Value(I_C_Tax.COLUMNNAME_IsTaxExempt, IsTaxExempt);
+        setValue(I_C_Tax.COLUMNNAME_IsTaxExempt, IsTaxExempt);
     }
 
     /**
@@ -267,7 +267,7 @@ public class X_C_Tax extends PO {
      * @param Name Alphanumeric identifier of the entity
      */
     public void setName(String Name) {
-        set_Value(HasName.Companion.getCOLUMNNAME_Name(), Name);
+        setValue(HasName.Companion.getCOLUMNNAME_Name(), Name);
     }
 
     /**
@@ -298,7 +298,7 @@ public class X_C_Tax extends PO {
      * @param Rate Rate or Tax or Exchange
      */
     public void setRate(BigDecimal Rate) {
-        set_Value(I_C_Tax.COLUMNNAME_Rate, Rate);
+        setValue(I_C_Tax.COLUMNNAME_Rate, Rate);
     }
 
     /**
@@ -307,7 +307,7 @@ public class X_C_Tax extends PO {
      * @param RequiresTaxCertificate This tax rate requires the Business Partner to be tax exempt
      */
     public void setRequiresTaxCertificate(boolean RequiresTaxCertificate) {
-        set_Value(I_C_Tax.COLUMNNAME_RequiresTaxCertificate, RequiresTaxCertificate);
+        setValue(I_C_Tax.COLUMNNAME_RequiresTaxCertificate, RequiresTaxCertificate);
     }
 
     /**
@@ -326,7 +326,7 @@ public class X_C_Tax extends PO {
      */
     public void setSOPOType(String SOPOType) {
 
-        set_Value(I_C_Tax.COLUMNNAME_SOPOType, SOPOType);
+        setValue(I_C_Tax.COLUMNNAME_SOPOType, SOPOType);
     }
 
     /**
@@ -346,8 +346,8 @@ public class X_C_Tax extends PO {
      * @param To_Country_ID Receiving Country
      */
     public void setTo_Country_ID(int To_Country_ID) {
-        if (To_Country_ID < 1) set_Value(I_C_Tax.COLUMNNAME_To_Country_ID, null);
-        else set_Value(I_C_Tax.COLUMNNAME_To_Country_ID, To_Country_ID);
+        if (To_Country_ID < 1) setValue(I_C_Tax.COLUMNNAME_To_Country_ID, null);
+        else setValue(I_C_Tax.COLUMNNAME_To_Country_ID, To_Country_ID);
     }
 
     /**
@@ -376,7 +376,7 @@ public class X_C_Tax extends PO {
      * @param ValidFrom Valid from including this date (first day)
      */
     public void setValidFrom(Timestamp ValidFrom) {
-        set_Value(I_C_Tax.COLUMNNAME_ValidFrom, ValidFrom);
+        setValue(I_C_Tax.COLUMNNAME_ValidFrom, ValidFrom);
     }
 
     @Override
