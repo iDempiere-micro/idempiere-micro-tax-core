@@ -667,49 +667,49 @@ public class Tax {
                 log.finest(
                         "From Country Group - "
                                 + (MCountryGroup.countryGroupContains(
-                                tax.getC_CountryGroupFrom_ID(), lFrom.getC_Country_ID())
+                                tax.getC_CountryGroupFrom_ID(), lFrom.getCountryId())
                                 || tax.getC_CountryGroupFrom_ID() == 0));
             if (log.isLoggable(Level.FINEST))
                 log.finest(
                         "From Country - "
-                                + (tax.getC_Country_ID() == lFrom.getC_Country_ID() || tax.getC_Country_ID() == 0));
+                                + (tax.getCountryId() == lFrom.getCountryId() || tax.getCountryId() == 0));
             if (log.isLoggable(Level.FINEST))
                 log.finest(
                         "From Region - "
-                                + (tax.getC_Region_ID() == lFrom.getC_Region_ID() || tax.getC_Region_ID() == 0));
+                                + (tax.getRegionId() == lFrom.getRegionId() || tax.getRegionId() == 0));
             if (log.isLoggable(Level.FINEST))
                 log.finest(
                         "To Country Group - "
                                 + (MCountryGroup.countryGroupContains(
-                                tax.getC_CountryGroupTo_ID(), lTo.getC_Country_ID())
+                                tax.getC_CountryGroupTo_ID(), lTo.getCountryId())
                                 || tax.getC_CountryGroupTo_ID() == 0));
             if (log.isLoggable(Level.FINEST))
                 log.finest(
                         "To Country - "
-                                + (tax.getTo_Country_ID() == lTo.getC_Country_ID() || tax.getTo_Country_ID() == 0));
+                                + (tax.getTo_Country_ID() == lTo.getCountryId() || tax.getTo_Country_ID() == 0));
             if (log.isLoggable(Level.FINEST))
                 log.finest(
                         "To Region - "
-                                + (tax.getTo_Region_ID() == lTo.getC_Region_ID() || tax.getTo_Region_ID() == 0));
+                                + (tax.getTo_Region_ID() == lTo.getRegionId() || tax.getTo_Region_ID() == 0));
             if (log.isLoggable(Level.FINEST))
                 log.finest("Date valid - " + (!tax.getValidFrom().after(billDate)));
 
             //	From Country Group
             if ((tax.getC_CountryGroupFrom_ID() == 0
                     || MCountryGroup.countryGroupContains(
-                    tax.getC_CountryGroupFrom_ID(), lFrom.getC_Country_ID()))
+                    tax.getC_CountryGroupFrom_ID(), lFrom.getCountryId()))
                     //	From Country
-                    && (tax.getC_Country_ID() == lFrom.getC_Country_ID() || tax.getC_Country_ID() == 0)
+                    && (tax.getCountryId() == lFrom.getCountryId() || tax.getCountryId() == 0)
                     //	From Region
-                    && (tax.getC_Region_ID() == lFrom.getC_Region_ID() || tax.getC_Region_ID() == 0)
+                    && (tax.getRegionId() == lFrom.getRegionId() || tax.getRegionId() == 0)
                     //	To Country Group
                     && (tax.getC_CountryGroupTo_ID() == 0
                     || MCountryGroup.countryGroupContains(
-                    tax.getC_CountryGroupTo_ID(), lTo.getC_Country_ID()))
+                    tax.getC_CountryGroupTo_ID(), lTo.getCountryId()))
                     //	To Country
-                    && (tax.getTo_Country_ID() == lTo.getC_Country_ID() || tax.getTo_Country_ID() == 0)
+                    && (tax.getTo_Country_ID() == lTo.getCountryId() || tax.getTo_Country_ID() == 0)
                     //	To Region
-                    && (tax.getTo_Region_ID() == lTo.getC_Region_ID() || tax.getTo_Region_ID() == 0)
+                    && (tax.getTo_Region_ID() == lTo.getRegionId() || tax.getTo_Region_ID() == 0)
                     //	Date
                     && !tax.getValidFrom().after(billDate)) {
                 if (!tax.isPostal()) return tax.getC_Tax_ID();

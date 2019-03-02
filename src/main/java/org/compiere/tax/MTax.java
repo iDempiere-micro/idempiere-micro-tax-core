@@ -230,11 +230,11 @@ public class MTax extends X_C_Tax implements I_C_Tax {
                         .append(", Parent=")
                         .append(getParent_Tax_ID())
                         .append(", Country=")
-                        .append(getC_Country_ID())
+                        .append(getCountryId())
                         .append("|")
                         .append(getTo_Country_ID())
                         .append(", Region=")
-                        .append(getC_Region_ID())
+                        .append(getRegionId())
                         .append("|")
                         .append(getTo_Region_ID())
                         .append("]");
@@ -312,8 +312,8 @@ public class MTax extends X_C_Tax implements I_C_Tax {
                 return false;
             }
         }
-        if (getC_Country_ID() > 0 && getC_CountryGroupFrom_ID() > 0) {
-            setC_Country_ID(0);
+        if (getCountryId() > 0 && getC_CountryGroupFrom_ID() > 0) {
+            setCountryId(0);
         }
         if (getTo_Country_ID() > 0 && getC_CountryGroupTo_ID() > 0) {
             setTo_Country_ID(0);

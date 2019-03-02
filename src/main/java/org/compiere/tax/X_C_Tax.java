@@ -95,7 +95,7 @@ public class X_C_Tax extends PO {
      *
      * @return Country
      */
-    public int getC_Country_ID() {
+    public int getCountryId() {
         Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_Country_ID);
         if (ii == null) return 0;
         return ii;
@@ -106,7 +106,7 @@ public class X_C_Tax extends PO {
      *
      * @param C_Country_ID Country
      */
-    public void setC_Country_ID(int C_Country_ID) {
+    public void setCountryId(int C_Country_ID) {
         if (C_Country_ID < 1) setValue(I_C_Tax.COLUMNNAME_C_Country_ID, null);
         else setValue(I_C_Tax.COLUMNNAME_C_Country_ID, C_Country_ID);
     }
@@ -116,7 +116,7 @@ public class X_C_Tax extends PO {
      *
      * @return Identifies a geographical Region
      */
-    public int getC_Region_ID() {
+    public int getRegionId() {
         Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_Region_ID);
         if (ii == null) return 0;
         return ii;
