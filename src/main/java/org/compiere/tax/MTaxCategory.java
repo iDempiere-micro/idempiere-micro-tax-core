@@ -1,11 +1,11 @@
 package org.compiere.tax;
 
+import kotliquery.Row;
 import org.compiere.model.I_C_Tax;
 import org.compiere.model.I_C_TaxCategory;
 import org.compiere.orm.Query;
 import org.idempiere.common.exceptions.AdempiereException;
 
-import java.sql.ResultSet;
 import java.util.List;
 import java.util.Properties;
 
@@ -43,8 +43,8 @@ public class MTaxCategory extends X_C_TaxCategory {
      * @param rs      result set
      * @param trxName trx
      */
-    public MTaxCategory(Properties ctx, ResultSet rs) {
-        super(ctx, rs);
+    public MTaxCategory(Properties ctx, Row row) {
+        super(ctx, row);
     } //	MTaxCategory
 
     /**

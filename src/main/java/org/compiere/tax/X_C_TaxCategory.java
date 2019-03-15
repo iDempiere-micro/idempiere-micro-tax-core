@@ -1,9 +1,9 @@
 package org.compiere.tax;
 
+import kotliquery.Row;
 import org.compiere.model.I_C_TaxCategory;
 import org.compiere.orm.BasePOName;
 
-import java.sql.ResultSet;
 import java.util.Properties;
 
 /**
@@ -32,8 +32,8 @@ public class X_C_TaxCategory extends BasePOName implements I_C_TaxCategory {
     /**
      * Load Constructor
      */
-    public X_C_TaxCategory(Properties ctx, ResultSet rs) {
-        super(ctx, rs);
+    public X_C_TaxCategory(Properties ctx, Row row) {
+        super(ctx, row);
     }
 
     /**

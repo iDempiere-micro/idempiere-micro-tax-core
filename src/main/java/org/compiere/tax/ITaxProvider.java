@@ -1,6 +1,10 @@
 package org.compiere.tax;
 
-import org.compiere.model.*;
+import org.compiere.model.I_C_Order;
+import org.compiere.model.I_C_OrderLine;
+import org.compiere.model.I_C_TaxProvider;
+import org.compiere.model.I_M_RMA;
+import org.compiere.model.I_M_RMALine;
 
 /**
  * Tax provider interface

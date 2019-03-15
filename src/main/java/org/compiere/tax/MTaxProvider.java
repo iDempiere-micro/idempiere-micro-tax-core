@@ -1,6 +1,7 @@
 package org.compiere.tax;
 
-import java.sql.ResultSet;
+import kotliquery.Row;
+
 import java.util.Properties;
 import java.util.logging.Level;
 
@@ -20,8 +21,8 @@ public class MTaxProvider extends X_C_TaxProvider {
         super(ctx, C_TaxProvider_ID);
     }
 
-    public MTaxProvider(Properties ctx, ResultSet rs) {
-        super(ctx, rs);
+    public MTaxProvider(Properties ctx, Row row) {
+        super(ctx, row);
     }
 
     /**

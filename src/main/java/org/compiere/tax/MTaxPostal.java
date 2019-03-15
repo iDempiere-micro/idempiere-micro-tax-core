@@ -1,6 +1,7 @@
 package org.compiere.tax;
 
-import java.sql.ResultSet;
+import kotliquery.Row;
+
 import java.util.Properties;
 
 /**
@@ -33,7 +34,7 @@ public class MTaxPostal extends X_C_TaxPostal {
      * @param rs      result set
      * @param trxName transaction
      */
-    public MTaxPostal(Properties ctx, ResultSet rs) {
-        super(ctx, rs);
+    public MTaxPostal(Properties ctx, Row row) {
+        super(ctx, row);
     } //	MTaxPostal
 } //	MTaxPostal

@@ -1,9 +1,9 @@
 package org.compiere.tax;
 
+import kotliquery.Row;
 import org.compiere.model.I_C_TaxPostal;
 import org.compiere.orm.PO;
 
-import java.sql.ResultSet;
 import java.util.Properties;
 
 /**
@@ -30,8 +30,8 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal {
     /**
      * Load Constructor
      */
-    public X_C_TaxPostal(Properties ctx, ResultSet rs) {
-        super(ctx, rs);
+    public X_C_TaxPostal(Properties ctx, Row row) {
+        super(ctx, row);
     }
 
     /**

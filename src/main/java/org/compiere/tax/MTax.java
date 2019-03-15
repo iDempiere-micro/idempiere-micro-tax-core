@@ -1,5 +1,6 @@
 package org.compiere.tax;
 
+import kotliquery.Row;
 import org.compiere.model.I_C_Tax;
 import org.compiere.model.I_C_TaxPostal;
 import org.compiere.orm.Query;
@@ -9,7 +10,6 @@ import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.Env;
 
 import java.math.BigDecimal;
-import java.sql.ResultSet;
 import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -79,8 +79,8 @@ public class MTax extends X_C_Tax implements I_C_Tax {
      * @param rs      result set
      * @param trxName transaction
      */
-    public MTax(Properties ctx, ResultSet rs) {
-        super(ctx, rs);
+    public MTax(Properties ctx, Row row) {
+        super(ctx, row);
     } //	MTax
 
     /**
@@ -107,7 +107,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
      */
     public static MTax[] getAll(Properties ctx) {
         int AD_Client_ID = Env.getClientId(ctx);
-        MTax[] retValue = (MTax[]) s_cacheAll.get(AD_Client_ID);
+        MTax[] retValue = s_cacheAll.get(AD_Client_ID);
         if (retValue != null) return retValue;
 
         //	Create it
@@ -136,7 +136,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
      */
     public static MTax get(Properties ctx, int C_Tax_ID) {
         Integer key = C_Tax_ID;
-        MTax retValue = (MTax) s_cache.get(key);
+        MTax retValue = s_cache.get(key);
         if (retValue != null) return retValue;
         retValue = new MTax(ctx, C_Tax_ID);
         if (retValue.getId() != 0) s_cache.put(key, retValue);
