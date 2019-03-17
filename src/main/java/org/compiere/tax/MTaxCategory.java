@@ -60,7 +60,7 @@ public class MTaxCategory extends X_C_TaxCategory {
                         + "='Y'";
         List<MTax> list =
                 new Query(getCtx(), I_C_Tax.Table_Name, whereClause)
-                        .setParameters(getC_TaxCategory_ID())
+                        .setParameters(getTaxCategoryId())
                         .setOnlyActiveRecords(true)
                         .list();
         if (list.size() == 0) {

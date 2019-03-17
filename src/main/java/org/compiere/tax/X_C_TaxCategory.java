@@ -25,7 +25,7 @@ public class X_C_TaxCategory extends BasePOName implements I_C_TaxCategory {
     public X_C_TaxCategory(Properties ctx, int C_TaxCategory_ID) {
         super(ctx, C_TaxCategory_ID);
         /**
-         * if (C_TaxCategory_ID == 0) { setC_TaxCategory_ID (0); setIsDefault (false); setName (null); }
+         * if (C_TaxCategory_ID == 0) { setTaxCategoryId (0); setIsDefault (false); setName (null); }
          */
     }
 
@@ -55,7 +55,7 @@ public class X_C_TaxCategory extends BasePOName implements I_C_TaxCategory {
      *
      * @return Tax Category
      */
-    public int getC_TaxCategory_ID() {
+    public int getTaxCategoryId() {
         Integer ii = (Integer) getValue(COLUMNNAME_C_TaxCategory_ID);
         if (ii == null) return 0;
         return ii;

@@ -26,7 +26,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider {
     public X_C_TaxProvider(Properties ctx, int C_TaxProvider_ID) {
         super(ctx, C_TaxProvider_ID);
         /**
-         * if (C_TaxProvider_ID == 0) { setC_TaxProviderCfg_ID (0); setC_TaxProvider_ID (0); setName
+         * if (C_TaxProvider_ID == 0) { setTaxProviderConfigurationId (0); setTaxProviderId (0); setName
          * (null); setSeqNo (0); // 0 }
          */
     }
@@ -52,10 +52,10 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider {
         return sb.toString();
     }
 
-    public org.compiere.model.I_C_TaxProviderCfg getC_TaxProviderCfg() throws RuntimeException {
+    public org.compiere.model.I_C_TaxProviderCfg getTaxProviderConfiguration() throws RuntimeException {
         return (org.compiere.model.I_C_TaxProviderCfg)
                 MTable.get(getCtx(), org.compiere.model.I_C_TaxProviderCfg.Table_Name)
-                        .getPO(getC_TaxProviderCfg_ID());
+                        .getPO(getTaxProviderConfigurationId());
     }
 
     /**
@@ -63,7 +63,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider {
      *
      * @return Tax Provider Configuration
      */
-    public int getC_TaxProviderCfg_ID() {
+    public int getTaxProviderConfigurationId() {
         Integer ii = (Integer) getValue(COLUMNNAME_C_TaxProviderCfg_ID);
         if (ii == null) return 0;
         return ii;
@@ -74,7 +74,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider {
      *
      * @return Tax Provider
      */
-    public int getC_TaxProvider_ID() {
+    public int getTaxProviderId() {
         Integer ii = (Integer) getValue(COLUMNNAME_C_TaxProvider_ID);
         if (ii == null) return 0;
         return ii;

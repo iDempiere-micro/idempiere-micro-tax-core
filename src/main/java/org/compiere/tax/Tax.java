@@ -656,9 +656,9 @@ public class Tax {
             MTax tax = taxes[i];
             if (log.isLoggable(Level.FINEST)) log.finest(tax.toString());
             //
-            if (tax.getC_TaxCategory_ID() != C_TaxCategory_ID
+            if (tax.getTaxCategoryId() != C_TaxCategory_ID
                     || !tax.isActive()
-                    || tax.getParent_Tax_ID() != 0) // 	user parent tax
+                    || tax.getParent_TaxId() != 0) // 	user parent tax
                 continue;
             if (IsSOTrx && MTax.SOPOTYPE_PurchaseTax.equals(tax.getSOPOType())) continue;
             if (!IsSOTrx && MTax.SOPOTYPE_SalesTax.equals(tax.getSOPOType())) continue;
@@ -667,8 +667,8 @@ public class Tax {
                 log.finest(
                         "From Country Group - "
                                 + (MCountryGroup.countryGroupContains(
-                                tax.getC_CountryGroupFrom_ID(), lFrom.getCountryId())
-                                || tax.getC_CountryGroupFrom_ID() == 0));
+                                tax.getCountryGroupFromId(), lFrom.getCountryId())
+                                || tax.getCountryGroupFromId() == 0));
             if (log.isLoggable(Level.FINEST))
                 log.finest(
                         "From Country - "
@@ -681,38 +681,38 @@ public class Tax {
                 log.finest(
                         "To Country Group - "
                                 + (MCountryGroup.countryGroupContains(
-                                tax.getC_CountryGroupTo_ID(), lTo.getCountryId())
-                                || tax.getC_CountryGroupTo_ID() == 0));
+                                tax.getCountryGroupToId(), lTo.getCountryId())
+                                || tax.getCountryGroupToId() == 0));
             if (log.isLoggable(Level.FINEST))
                 log.finest(
                         "To Country - "
-                                + (tax.getTo_Country_ID() == lTo.getCountryId() || tax.getTo_Country_ID() == 0));
+                                + (tax.getTo_CountryId() == lTo.getCountryId() || tax.getTo_CountryId() == 0));
             if (log.isLoggable(Level.FINEST))
                 log.finest(
                         "To Region - "
-                                + (tax.getTo_Region_ID() == lTo.getRegionId() || tax.getTo_Region_ID() == 0));
+                                + (tax.getTo_RegionId() == lTo.getRegionId() || tax.getTo_RegionId() == 0));
             if (log.isLoggable(Level.FINEST))
                 log.finest("Date valid - " + (!tax.getValidFrom().after(billDate)));
 
             //	From Country Group
-            if ((tax.getC_CountryGroupFrom_ID() == 0
+            if ((tax.getCountryGroupFromId() == 0
                     || MCountryGroup.countryGroupContains(
-                    tax.getC_CountryGroupFrom_ID(), lFrom.getCountryId()))
+                    tax.getCountryGroupFromId(), lFrom.getCountryId()))
                     //	From Country
                     && (tax.getCountryId() == lFrom.getCountryId() || tax.getCountryId() == 0)
                     //	From Region
                     && (tax.getRegionId() == lFrom.getRegionId() || tax.getRegionId() == 0)
                     //	To Country Group
-                    && (tax.getC_CountryGroupTo_ID() == 0
+                    && (tax.getCountryGroupToId() == 0
                     || MCountryGroup.countryGroupContains(
-                    tax.getC_CountryGroupTo_ID(), lTo.getCountryId()))
+                    tax.getCountryGroupToId(), lTo.getCountryId()))
                     //	To Country
-                    && (tax.getTo_Country_ID() == lTo.getCountryId() || tax.getTo_Country_ID() == 0)
+                    && (tax.getTo_CountryId() == lTo.getCountryId() || tax.getTo_CountryId() == 0)
                     //	To Region
-                    && (tax.getTo_Region_ID() == lTo.getRegionId() || tax.getTo_Region_ID() == 0)
+                    && (tax.getTo_RegionId() == lTo.getRegionId() || tax.getTo_RegionId() == 0)
                     //	Date
                     && !tax.getValidFrom().after(billDate)) {
-                if (!tax.isPostal()) return tax.getC_Tax_ID();
+                if (!tax.isPostal()) return tax.getTaxId();
                 //
                 MTaxPostal[] postals = tax.getPostals(false);
                 for (int j = 0; j < postals.length; j++) {
@@ -721,8 +721,8 @@ public class Tax {
                             //	Postal From is mandatory
                             && postal.getPostal().startsWith(lFrom.getPostal())
                             //	Postal To is optional
-                            && (postal.getPostal_To() == null
-                            || postal.getPostal_To().startsWith(lTo.getPostal()))) return tax.getC_Tax_ID();
+                            && (postal.getPostalTo() == null
+                            || postal.getPostalTo().startsWith(lTo.getPostal()))) return tax.getTaxId();
                 } //	for all postals
             }
         } //	for all taxes
@@ -730,12 +730,12 @@ public class Tax {
         //	Default Tax
         for (int i = 0; i < taxes.length; i++) {
             MTax tax = taxes[i];
-            if (!tax.isDefault() || !tax.isActive() || tax.getParent_Tax_ID() != 0) // 	user parent tax
+            if (!tax.isDefault() || !tax.isActive() || tax.getParent_TaxId() != 0) // 	user parent tax
                 continue;
             if (IsSOTrx && MTax.SOPOTYPE_PurchaseTax.equals(tax.getSOPOType())) continue;
             if (!IsSOTrx && MTax.SOPOTYPE_SalesTax.equals(tax.getSOPOType())) continue;
             if (log.isLoggable(Level.FINE)) log.fine("get (default) - " + tax);
-            return tax.getC_Tax_ID();
+            return tax.getTaxId();
         } //	for all taxes
 
         throw new TaxNotFoundException(

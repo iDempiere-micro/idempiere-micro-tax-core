@@ -57,7 +57,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
     public MTax(Properties ctx, int C_Tax_ID) {
         super(ctx, C_Tax_ID);
         if (C_Tax_ID == 0) {
-            //	setC_Tax_ID (0);		PK
+            //	setTaxId (0);		PK
             setIsDefault(false);
             setIsDocumentLevel(true);
             setIsSummary(false);
@@ -65,7 +65,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
             //	setName (null);
             setRate(Env.ZERO);
             setRequiresTaxCertificate(false);
-            //	setC_TaxCategory_ID (0);	//	FK
+            //	setTaxCategoryId (0);	//	FK
             setSOPOType(X_C_Tax.SOPOTYPE_Both);
             setValidFrom(TimeUtil.getDay(1990, 1, 1));
             setIsSalesTax(false);
@@ -96,7 +96,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
         this(ctx, 0);
         setName(Name);
         setRate(Rate == null ? Env.ZERO : Rate);
-        setC_TaxCategory_ID(C_TaxCategory_ID); // 	FK
+        setTaxCategoryId(C_TaxCategory_ID); // 	FK
     } //	MTax
 
     /**
@@ -114,7 +114,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
         // FR: [ 2214883 ] Remove SQL code and Replace for Query - red1
         List<MTax> list =
                 new Query(ctx, I_C_Tax.Table_Name, null)
-                        .setClient_ID()
+                        .setClientId()
                         .setOrderBy(
                                 "C_CountryGroupFrom_ID, C_Country_ID, C_Region_ID, C_CountryGroupTo_ID, To_Country_ID, To_Region_ID, ValidFrom DESC")
                         .setOnlyActiveRecords(true)
@@ -157,7 +157,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
         final String whereClause = I_C_Tax.COLUMNNAME_Parent_Tax_ID + "=?";
         List<MTax> list =
                 new Query(getCtx(), I_C_Tax.Table_Name, whereClause)
-                        .setParameters(getC_Tax_ID())
+                        .setParameters(getTaxId())
                         .setOnlyActiveRecords(true)
                         .list();
         // red1 - end -
@@ -180,7 +180,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
         final String whereClause = MTaxPostal.COLUMNNAME_C_Tax_ID + "=?";
         List<MTaxPostal> list =
                 new Query(getCtx(), I_C_TaxPostal.Table_Name, whereClause)
-                        .setParameters(getC_Tax_ID())
+                        .setParameters(getTaxId())
                         .setOnlyActiveRecords(true)
                         .setOrderBy(I_C_TaxPostal.COLUMNNAME_Postal + ", " + I_C_TaxPostal.COLUMNNAME_Postal_To)
                         .list();
@@ -224,19 +224,19 @@ public class MTax extends X_C_Tax implements I_C_Tax {
                         .append(", Rate=")
                         .append(getRate())
                         .append(", C_TaxCategory_ID=")
-                        .append(getC_TaxCategory_ID())
+                        .append(getTaxCategoryId())
                         .append(", Summary=")
                         .append(isSummary())
                         .append(", Parent=")
-                        .append(getParent_Tax_ID())
+                        .append(getParent_TaxId())
                         .append(", Country=")
                         .append(getCountryId())
                         .append("|")
-                        .append(getTo_Country_ID())
+                        .append(getTo_CountryId())
                         .append(", Region=")
                         .append(getRegionId())
                         .append("|")
-                        .append(getTo_Region_ID())
+                        .append(getTo_RegionId())
                         .append("]");
         return sb.toString();
     } //	toString
@@ -301,7 +301,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
                             + "IsDefault='Y'";
             List<MTax> list =
                     new Query(getCtx(), I_C_Tax.Table_Name, whereClause)
-                            .setParameters(getC_TaxCategory_ID(), getC_Tax_ID())
+                            .setParameters(getTaxCategoryId(), getTaxId())
                             .setOnlyActiveRecords(true)
                             .list();
             if (list.size() >= 1) {
@@ -312,11 +312,11 @@ public class MTax extends X_C_Tax implements I_C_Tax {
                 return false;
             }
         }
-        if (getCountryId() > 0 && getC_CountryGroupFrom_ID() > 0) {
+        if (getCountryId() > 0 && getCountryGroupFromId() > 0) {
             setCountryId(0);
         }
-        if (getTo_Country_ID() > 0 && getC_CountryGroupTo_ID() > 0) {
-            setTo_Country_ID(0);
+        if (getTo_CountryId() > 0 && getCountryGroupToId() > 0) {
+            setTo_CountryId(0);
         }
 
         return super.beforeSave(newRecord);

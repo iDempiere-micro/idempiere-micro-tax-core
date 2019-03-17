@@ -34,7 +34,7 @@ public class MTaxProvider extends X_C_TaxProvider {
     public static ITaxProvider getTaxProvider(
             MTaxProvider provider, ITaxProvider standardTaxProvider) {
         if (provider != null) {
-            if (provider.getC_TaxProvider_ID() == 0) return standardTaxProvider;
+            if (provider.getTaxProviderId() == 0) return standardTaxProvider;
 
             if (!provider.isActive()) {
                 s_log.log(Level.SEVERE, "Tax provider is inactive: " + provider);
@@ -61,7 +61,7 @@ public class MTaxProvider extends X_C_TaxProvider {
     public static IInvoiceTaxProvider getTaxProvider(
             MTaxProvider provider, IInvoiceTaxProvider standardTaxProvider) {
         if (provider != null) {
-            if (provider.getC_TaxProvider_ID() == 0) return standardTaxProvider;
+            if (provider.getTaxProviderId() == 0) return standardTaxProvider;
 
             if (!provider.isActive()) {
                 s_log.log(Level.SEVERE, "Tax provider is inactive: " + provider);
@@ -80,6 +80,6 @@ public class MTaxProvider extends X_C_TaxProvider {
     }
 
     public String getTaxProviderClass() {
-        return getC_TaxProviderCfg().getTaxProviderClass();
+        return getTaxProviderConfiguration().getTaxProviderClass();
     }
 }

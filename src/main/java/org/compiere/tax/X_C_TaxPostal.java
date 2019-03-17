@@ -24,7 +24,7 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal {
      */
     public X_C_TaxPostal(Properties ctx, int C_TaxPostal_ID) {
         super(ctx, C_TaxPostal_ID);
-        /** if (C_TaxPostal_ID == 0) { setC_Tax_ID (0); setC_TaxPostal_ID (0); setPostal (null); } */
+        /** if (C_TaxPostal_ID == 0) { setTaxId (0); setTaxPostal_ID (0); setPostal (null); } */
     }
 
     /**
@@ -62,7 +62,7 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal {
      *
      * @return Postal code to
      */
-    public String getPostal_To() {
+    public String getPostalTo() {
         return (String) getValue(COLUMNNAME_Postal_To);
     }
 

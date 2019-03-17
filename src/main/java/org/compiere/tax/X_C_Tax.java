@@ -41,7 +41,7 @@ public class X_C_Tax extends PO {
     public X_C_Tax(Properties ctx, int C_Tax_ID) {
         super(ctx, C_Tax_ID);
         /**
-         * if (C_Tax_ID == 0) { setC_TaxCategory_ID (0); setC_Tax_ID (0); setIsDefault (false);
+         * if (C_Tax_ID == 0) { setTaxCategoryId (0); setTaxId (0); setIsDefault (false);
          * setIsDocumentLevel (false); setIsSalesTax (false); // N setIsSummary (false); setIsTaxExempt
          * (false); setName (null); setRate (Env.ZERO); setRequiresTaxCertificate (false); setSOPOType
          * (null); // B setValidFrom (new Timestamp( System.currentTimeMillis() )); }
@@ -73,7 +73,7 @@ public class X_C_Tax extends PO {
      *
      * @return Country Group From
      */
-    public int getC_CountryGroupFrom_ID() {
+    public int getCountryGroupFromId() {
         Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_CountryGroupFrom_ID);
         if (ii == null) return 0;
         return ii;
@@ -84,7 +84,7 @@ public class X_C_Tax extends PO {
      *
      * @return Country Group To
      */
-    public int getC_CountryGroupTo_ID() {
+    public int getCountryGroupToId() {
         Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_CountryGroupTo_ID);
         if (ii == null) return 0;
         return ii;
@@ -127,7 +127,7 @@ public class X_C_Tax extends PO {
      *
      * @return Tax Category
      */
-    public int getC_TaxCategory_ID() {
+    public int getTaxCategoryId() {
         Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_TaxCategory_ID);
         if (ii == null) return 0;
         return ii;
@@ -138,7 +138,7 @@ public class X_C_Tax extends PO {
      *
      * @param C_TaxCategory_ID Tax Category
      */
-    public void setC_TaxCategory_ID(int C_TaxCategory_ID) {
+    public void setTaxCategoryId(int C_TaxCategory_ID) {
         if (C_TaxCategory_ID < 1) setValue(I_C_Tax.COLUMNNAME_C_TaxCategory_ID, null);
         else setValue(I_C_Tax.COLUMNNAME_C_TaxCategory_ID, C_TaxCategory_ID);
     }
@@ -148,7 +148,7 @@ public class X_C_Tax extends PO {
      *
      * @return Tax identifier
      */
-    public int getC_Tax_ID() {
+    public int getTaxId() {
         Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_Tax_ID);
         if (ii == null) return 0;
         return ii;
@@ -159,7 +159,7 @@ public class X_C_Tax extends PO {
      *
      * @return Tax Provider
      */
-    public int getC_TaxProvider_ID() {
+    public int getTaxProviderId() {
         Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_TaxProvider_ID);
         if (ii == null) return 0;
         return ii;
@@ -275,7 +275,7 @@ public class X_C_Tax extends PO {
      *
      * @return Parent Tax indicates a tax that is made up of multiple taxes
      */
-    public int getParent_Tax_ID() {
+    public int getParent_TaxId() {
         Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_Parent_Tax_ID);
         if (ii == null) return 0;
         return ii;
@@ -334,7 +334,7 @@ public class X_C_Tax extends PO {
      *
      * @return Receiving Country
      */
-    public int getTo_Country_ID() {
+    public int getTo_CountryId() {
         Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_To_Country_ID);
         if (ii == null) return 0;
         return ii;
@@ -345,7 +345,7 @@ public class X_C_Tax extends PO {
      *
      * @param To_Country_ID Receiving Country
      */
-    public void setTo_Country_ID(int To_Country_ID) {
+    public void setTo_CountryId(int To_Country_ID) {
         if (To_Country_ID < 1) setValue(I_C_Tax.COLUMNNAME_To_Country_ID, null);
         else setValue(I_C_Tax.COLUMNNAME_To_Country_ID, To_Country_ID);
     }
@@ -355,7 +355,7 @@ public class X_C_Tax extends PO {
      *
      * @return Receiving Region
      */
-    public int getTo_Region_ID() {
+    public int getTo_RegionId() {
         Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_To_Region_ID);
         if (ii == null) return 0;
         return ii;
