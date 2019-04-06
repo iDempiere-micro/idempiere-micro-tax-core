@@ -1,8 +1,8 @@
 package org.compiere.tax;
 
 import org.compiere.orm.MOrg;
+import org.compiere.orm.MOrgKt;
 import org.idempiere.common.exceptions.AdempiereException;
-import org.idempiere.common.util.Env;
 
 /**
  * Throw by Tax Engine where no tax found for given criteria
@@ -33,8 +33,8 @@ public class TaxNoExemptFoundException extends AdempiereException {
         if (AD_Org_ID <= 0) {
             return "*";
         }
-        MOrg org = MOrg.get(Env.getCtx(), AD_Org_ID);
-        if (org == null || org.getId() != AD_Org_ID) {
+        MOrg org = MOrgKt.getOrg(AD_Org_ID);
+        if (org.getId() != AD_Org_ID) {
             return "?";
         }
         return org.getName();

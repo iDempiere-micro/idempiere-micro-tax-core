@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Properties;
 import java.util.logging.Level;
 
 import static software.hsharp.core.util.DBKt.getSQLValueEx;
@@ -45,7 +44,7 @@ public class Tax {
      * @deprecated
      */
     public static int get(
-            Properties ctx,
+
             int M_Product_ID,
             int C_Charge_ID,
             Timestamp billDate,
@@ -56,7 +55,7 @@ public class Tax {
             int shipC_BPartner_Location_ID,
             boolean IsSOTrx) {
         return get(
-                ctx,
+
                 M_Product_ID,
                 C_Charge_ID,
                 billDate,
@@ -98,7 +97,7 @@ public class Tax {
      * @throws TaxCriteriaNotFoundException if a criteria was not found
      */
     public static int get(
-            Properties ctx,
+
             int M_Product_ID,
             int C_Charge_ID,
             Timestamp billDate,
@@ -111,7 +110,7 @@ public class Tax {
             String trxName) {
         if (M_Product_ID != 0)
             return getProduct(
-                    ctx,
+
                     M_Product_ID,
                     billDate,
                     shipDate,
@@ -123,7 +122,7 @@ public class Tax {
                     trxName);
         else if (C_Charge_ID != 0)
             return getCharge(
-                    ctx,
+
                     C_Charge_ID,
                     billDate,
                     shipDate,
@@ -150,7 +149,7 @@ public class Tax {
      * @deprecated
      */
     public static int getCharge(
-            Properties ctx,
+
             int C_Charge_ID,
             Timestamp billDate,
             Timestamp shipDate,
@@ -160,7 +159,7 @@ public class Tax {
             int shipC_BPartner_Location_ID,
             boolean IsSOTrx) {
         return getCharge(
-                ctx,
+
                 C_Charge_ID,
                 billDate,
                 shipDate,
@@ -201,7 +200,7 @@ public class Tax {
      * @throws TaxCriteriaNotFoundException  if a criteria was not found
      */
     public static int getCharge(
-            Properties ctx,
+
             int C_Charge_ID,
             Timestamp billDate,
             Timestamp shipDate,
@@ -213,7 +212,7 @@ public class Tax {
             String trxName) {
         /* ship location from warehouse is plainly ignored below */
         // if (M_Warehouse_ID <= 0)
-        // M_Warehouse_ID = Env.getContextAsInt(ctx, "M_Warehouse_ID");
+        // M_Warehouse_ID = Env.getContextAsInt("M_Warehouse_ID");
         // if (M_Warehouse_ID <= 0)
         // {
         // throw new TaxForChangeNotFoundException(C_Charge_ID, AD_Org_ID, M_Warehouse_ID,
@@ -304,7 +303,7 @@ public class Tax {
                             + ", shipToC_Location_ID="
                             + shipToC_Location_ID);
         return get(
-                ctx,
+
                 C_TaxCategory_ID,
                 IsSOTrx,
                 shipDate,
@@ -330,7 +329,7 @@ public class Tax {
      * @deprecated
      */
     public static int getProduct(
-            Properties ctx,
+
             int M_Product_ID,
             Timestamp billDate,
             Timestamp shipDate,
@@ -340,7 +339,7 @@ public class Tax {
             int shipC_BPartner_Location_ID,
             boolean IsSOTrx) {
         return getProduct(
-                ctx,
+
                 M_Product_ID,
                 billDate,
                 shipDate,
@@ -379,7 +378,7 @@ public class Tax {
      * @return C_Tax_ID If error it returns 0 and sets error log (TaxCriteriaNotFound)
      */
     public static int getProduct(
-            Properties ctx,
+
             int M_Product_ID,
             Timestamp billDate,
             Timestamp shipDate,
@@ -459,7 +458,7 @@ public class Tax {
                                     + ", shipToC_Location_ID="
                                     + shipToC_Location_ID);
                 return get(
-                        ctx,
+
                         C_TaxCategory_ID,
                         IsSOTrx,
                         shipDate,
@@ -566,7 +565,7 @@ public class Tax {
         }
 
         return get(
-                ctx,
+
                 C_TaxCategory_ID,
                 IsSOTrx,
                 shipDate,
@@ -618,7 +617,7 @@ public class Tax {
      * @throws TaxNotFoundException if no tax found for given criteria
      */
     public static int get(
-            Properties ctx,
+
             int C_TaxCategory_ID,
             boolean IsSOTrx,
             Timestamp shipDate,
@@ -644,9 +643,9 @@ public class Tax {
                                 + billDate);
         }
 
-        MTax[] taxes = MTax.getAll(ctx);
-        MLocation lFrom = new MLocation(ctx, billFromC_Location_ID);
-        MLocation lTo = new MLocation(ctx, billToC_Location_ID);
+        MTax[] taxes = MTax.getAll();
+        MLocation lFrom = new MLocation(billFromC_Location_ID);
+        MLocation lTo = new MLocation(billToC_Location_ID);
         if (log.isLoggable(Level.FINER)) {
             log.finer("From=" + lFrom);
             log.finer("To=" + lTo);

@@ -5,8 +5,6 @@ import org.compiere.model.I_C_TaxProvider;
 import org.compiere.orm.MTable;
 import org.compiere.orm.PO;
 
-import java.util.Properties;
-
 /**
  * Generated Model for C_TaxProvider
  *
@@ -23,8 +21,8 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider {
     /**
      * Standard Constructor
      */
-    public X_C_TaxProvider(Properties ctx, int C_TaxProvider_ID) {
-        super(ctx, C_TaxProvider_ID);
+    public X_C_TaxProvider(int C_TaxProvider_ID) {
+        super(C_TaxProvider_ID);
         /**
          * if (C_TaxProvider_ID == 0) { setTaxProviderConfigurationId (0); setTaxProviderId (0); setName
          * (null); setSeqNo (0); // 0 }
@@ -34,8 +32,8 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider {
     /**
      * Load Constructor
      */
-    public X_C_TaxProvider(Properties ctx, Row row) {
-        super(ctx, row);
+    public X_C_TaxProvider(Row row) {
+        super(row);
     }
 
     /**
@@ -54,7 +52,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider {
 
     public org.compiere.model.I_C_TaxProviderCfg getTaxProviderConfiguration() throws RuntimeException {
         return (org.compiere.model.I_C_TaxProviderCfg)
-                MTable.get(getCtx(), org.compiere.model.I_C_TaxProviderCfg.Table_Name)
+                MTable.get(org.compiere.model.I_C_TaxProviderCfg.Table_Name)
                         .getPO(getTaxProviderConfigurationId());
     }
 

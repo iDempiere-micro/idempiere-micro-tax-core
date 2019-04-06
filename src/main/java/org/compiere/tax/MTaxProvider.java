@@ -2,7 +2,6 @@ package org.compiere.tax;
 
 import kotliquery.Row;
 
-import java.util.Properties;
 import java.util.logging.Level;
 
 
@@ -17,12 +16,12 @@ public class MTaxProvider extends X_C_TaxProvider {
      */
     private static final long serialVersionUID = 6621828279540899973L;
 
-    public MTaxProvider(Properties ctx, int C_TaxProvider_ID) {
-        super(ctx, C_TaxProvider_ID);
+    public MTaxProvider(int C_TaxProvider_ID) {
+        super(C_TaxProvider_ID);
     }
 
-    public MTaxProvider(Properties ctx, Row row) {
-        super(ctx, row);
+    public MTaxProvider(Row row) {
+        super(row);
     }
 
     /**

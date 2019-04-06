@@ -8,7 +8,6 @@ import org.idempiere.common.util.Env;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.Properties;
 
 /**
  * Generated Model for C_Tax
@@ -38,8 +37,8 @@ public class X_C_Tax extends PO {
     /**
      * Standard Constructor
      */
-    public X_C_Tax(Properties ctx, int C_Tax_ID) {
-        super(ctx, C_Tax_ID);
+    public X_C_Tax(int C_Tax_ID) {
+        super(C_Tax_ID);
         /**
          * if (C_Tax_ID == 0) { setTaxCategoryId (0); setTaxId (0); setIsDefault (false);
          * setIsDocumentLevel (false); setIsSalesTax (false); // N setIsSummary (false); setIsTaxExempt
@@ -51,8 +50,8 @@ public class X_C_Tax extends PO {
     /**
      * Load Constructor
      */
-    public X_C_Tax(Properties ctx, Row row) {
-        super(ctx, row);
+    public X_C_Tax(Row row) {
+        super(row);
     }
 
     /**
@@ -258,7 +257,7 @@ public class X_C_Tax extends PO {
      * @return Alphanumeric identifier of the entity
      */
     public String getName() {
-        return (String) getValue(HasName.Companion.getCOLUMNNAME_Name());
+        return (String) getValue(HasName.COLUMNNAME_Name);
     }
 
     /**
@@ -267,7 +266,7 @@ public class X_C_Tax extends PO {
      * @param Name Alphanumeric identifier of the entity
      */
     public void setName(String Name) {
-        setValue(HasName.Companion.getCOLUMNNAME_Name(), Name);
+        setValue(HasName.COLUMNNAME_Name, Name);
     }
 
     /**

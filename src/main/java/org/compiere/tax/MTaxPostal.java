@@ -2,8 +2,6 @@ package org.compiere.tax;
 
 import kotliquery.Row;
 
-import java.util.Properties;
-
 /**
  * Tax Postal Model
  *
@@ -23,8 +21,8 @@ public class MTaxPostal extends X_C_TaxPostal {
      * @param C_TaxPostal_ID id
      * @param trxName        transaction
      */
-    public MTaxPostal(Properties ctx, int C_TaxPostal_ID) {
-        super(ctx, C_TaxPostal_ID);
+    public MTaxPostal(int C_TaxPostal_ID) {
+        super(C_TaxPostal_ID);
     } //	MTaxPostal
 
     /**
@@ -34,7 +32,7 @@ public class MTaxPostal extends X_C_TaxPostal {
      * @param rs      result set
      * @param trxName transaction
      */
-    public MTaxPostal(Properties ctx, Row row) {
-        super(ctx, row);
+    public MTaxPostal(Row row) {
+        super(row);
     } //	MTaxPostal
 } //	MTaxPostal

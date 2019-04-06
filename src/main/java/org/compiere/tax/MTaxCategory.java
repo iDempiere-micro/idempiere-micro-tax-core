@@ -7,7 +7,6 @@ import org.compiere.orm.Query;
 import org.idempiere.common.exceptions.AdempiereException;
 
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Tax Category Model
@@ -26,10 +25,9 @@ public class MTaxCategory extends X_C_TaxCategory {
      *
      * @param ctx              context
      * @param C_TaxCategory_ID id
-     * @param trxName          trx
      */
-    public MTaxCategory(Properties ctx, int C_TaxCategory_ID) {
-        super(ctx, C_TaxCategory_ID);
+    public MTaxCategory(int C_TaxCategory_ID) {
+        super(C_TaxCategory_ID);
         if (C_TaxCategory_ID == 0) {
             //	setName (null);
             setIsDefault(false);
@@ -39,19 +37,17 @@ public class MTaxCategory extends X_C_TaxCategory {
     /**
      * Load Constructor
      *
-     * @param ctx     context
-     * @param rs      result set
-     * @param trxName trx
+     * @param ctx context
      */
-    public MTaxCategory(Properties ctx, Row row) {
-        super(ctx, row);
+    public MTaxCategory(Row row) {
+        super(row);
     } //	MTaxCategory
 
     /**
      * getDefaultTax Get the default tax id associated with this tax category
      */
     public MTax getDefaultTax() {
-        MTax m_tax = new MTax(getCtx(), 0);
+        MTax m_tax;
 
         final String whereClause =
                 I_C_TaxCategory.COLUMNNAME_C_TaxCategory_ID
@@ -59,7 +55,7 @@ public class MTaxCategory extends X_C_TaxCategory {
                         + I_C_TaxCategory.COLUMNNAME_IsDefault
                         + "='Y'";
         List<MTax> list =
-                new Query(getCtx(), I_C_Tax.Table_Name, whereClause)
+                new Query(I_C_Tax.Table_Name, whereClause)
                         .setParameters(getTaxCategoryId())
                         .setOnlyActiveRecords(true)
                         .list();

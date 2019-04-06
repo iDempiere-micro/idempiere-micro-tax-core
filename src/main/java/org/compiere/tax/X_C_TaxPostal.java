@@ -4,8 +4,6 @@ import kotliquery.Row;
 import org.compiere.model.I_C_TaxPostal;
 import org.compiere.orm.PO;
 
-import java.util.Properties;
-
 /**
  * Generated Model for C_TaxPostal
  *
@@ -22,16 +20,16 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal {
     /**
      * Standard Constructor
      */
-    public X_C_TaxPostal(Properties ctx, int C_TaxPostal_ID) {
-        super(ctx, C_TaxPostal_ID);
+    public X_C_TaxPostal(int C_TaxPostal_ID) {
+        super(C_TaxPostal_ID);
         /** if (C_TaxPostal_ID == 0) { setTaxId (0); setTaxPostal_ID (0); setPostal (null); } */
     }
 
     /**
      * Load Constructor
      */
-    public X_C_TaxPostal(Properties ctx, Row row) {
-        super(ctx, row);
+    public X_C_TaxPostal(Row row) {
+        super(row);
     }
 
     /**

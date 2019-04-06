@@ -1,9 +1,9 @@
 package org.compiere.tax;
 
 import org.compiere.crm.MLocation;
+import org.compiere.crm.MLocationKt;
 import org.compiere.util.DisplayType;
 import org.idempiere.common.exceptions.AdempiereException;
-import org.idempiere.common.util.Env;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -85,7 +85,7 @@ public class TaxNotFoundException extends AdempiereException {
         if (C_TaxCategory_ID <= 0) {
             return "?";
         }
-        MTaxCategory cat = new MTaxCategory(Env.getCtx(), C_TaxCategory_ID);
+        MTaxCategory cat = new MTaxCategory(C_TaxCategory_ID);
         if (cat.getId() != C_TaxCategory_ID) {
             return "?";
         }
@@ -96,7 +96,7 @@ public class TaxNotFoundException extends AdempiereException {
         if (C_Location_ID <= 0) {
             return "?";
         }
-        MLocation loc = MLocation.get(Env.getCtx(), C_Location_ID);
+        MLocation loc = MLocationKt.getLocation(C_Location_ID);
         if (loc == null || loc.getId() != C_Location_ID) {
             return "?";
         }
