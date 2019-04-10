@@ -5,7 +5,7 @@ import org.compiere.model.I_C_Tax;
 import org.compiere.model.I_C_TaxPostal;
 import org.compiere.orm.Query;
 import org.compiere.orm.TimeUtil;
-import org.compiere.util.Msg;
+import org.compiere.util.MsgKt;
 import org.idempiere.common.util.CCache;
 import org.idempiere.common.util.Env;
 
@@ -293,8 +293,8 @@ public class MTax extends X_C_Tax implements I_C_Tax {
             if (list.size() >= 1) {
                 log.saveError(
                         "Error",
-                        Msg.parseTranslation(
-                                Msg.getMsg("OnlyOneTaxPerCategoryMarkedDefault")));
+                        MsgKt.parseTranslation(
+                                MsgKt.getMsg("OnlyOneTaxPerCategoryMarkedDefault")));
                 return false;
             }
         }
