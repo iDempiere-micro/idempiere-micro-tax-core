@@ -2,8 +2,9 @@ package org.compiere.tax;
 
 import kotliquery.Row;
 import org.compiere.model.I_C_TaxProvider;
-import org.compiere.orm.MTable;
+import org.compiere.model.I_C_TaxProviderCfg;
 import org.compiere.orm.PO;
+import software.hsharp.core.orm.MBaseTableKt;
 
 /**
  * Generated Model for C_TaxProvider
@@ -23,10 +24,6 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider {
      */
     public X_C_TaxProvider(int C_TaxProvider_ID) {
         super(C_TaxProvider_ID);
-        /**
-         * if (C_TaxProvider_ID == 0) { setTaxProviderConfigurationId (0); setTaxProviderId (0); setName
-         * (null); setSeqNo (0); // 0 }
-         */
     }
 
     /**
@@ -46,13 +43,12 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider {
     }
 
     public String toString() {
-        StringBuffer sb = new StringBuffer("X_C_TaxProvider[").append(getId()).append("]");
-        return sb.toString();
+        return "X_C_TaxProvider[" + getId() + "]";
     }
 
-    public org.compiere.model.I_C_TaxProviderCfg getTaxProviderConfiguration() throws RuntimeException {
-        return (org.compiere.model.I_C_TaxProviderCfg)
-                MTable.get(org.compiere.model.I_C_TaxProviderCfg.Table_Name)
+    public I_C_TaxProviderCfg getTaxProviderConfiguration() throws RuntimeException {
+        return (I_C_TaxProviderCfg)
+                MBaseTableKt.getTable(I_C_TaxProviderCfg.Table_Name)
                         .getPO(getTaxProviderConfigurationId());
     }
 
