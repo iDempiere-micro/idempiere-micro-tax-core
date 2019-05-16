@@ -52,7 +52,7 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal {
      * @return Postal code
      */
     public String getPostal() {
-        return (String) getValue(COLUMNNAME_Postal);
+        return getValue(COLUMNNAME_Postal);
     }
 
     /**
@@ -61,7 +61,7 @@ public class X_C_TaxPostal extends PO implements I_C_TaxPostal {
      * @return Postal code to
      */
     public String getPostalTo() {
-        return (String) getValue(COLUMNNAME_Postal_To);
+        return getValue(COLUMNNAME_Postal_To);
     }
 
     @Override

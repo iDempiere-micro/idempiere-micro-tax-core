@@ -73,7 +73,7 @@ public class X_C_Tax extends PO {
      * @return Country Group From
      */
     public int getCountryGroupFromId() {
-        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_CountryGroupFrom_ID);
+        Integer ii = getValue(I_C_Tax.COLUMNNAME_C_CountryGroupFrom_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -84,7 +84,7 @@ public class X_C_Tax extends PO {
      * @return Country Group To
      */
     public int getCountryGroupToId() {
-        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_CountryGroupTo_ID);
+        Integer ii = getValue(I_C_Tax.COLUMNNAME_C_CountryGroupTo_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -95,7 +95,7 @@ public class X_C_Tax extends PO {
      * @return Country
      */
     public int getCountryId() {
-        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_Country_ID);
+        Integer ii = getValue(I_C_Tax.COLUMNNAME_C_Country_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -116,7 +116,7 @@ public class X_C_Tax extends PO {
      * @return Identifies a geographical Region
      */
     public int getRegionId() {
-        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_Region_ID);
+        Integer ii = getValue(I_C_Tax.COLUMNNAME_C_Region_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -127,7 +127,7 @@ public class X_C_Tax extends PO {
      * @return Tax Category
      */
     public int getTaxCategoryId() {
-        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_TaxCategory_ID);
+        Integer ii = getValue(I_C_Tax.COLUMNNAME_C_TaxCategory_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -148,7 +148,7 @@ public class X_C_Tax extends PO {
      * @return Tax identifier
      */
     public int getTaxId() {
-        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_Tax_ID);
+        Integer ii = getValue(I_C_Tax.COLUMNNAME_C_Tax_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -159,7 +159,7 @@ public class X_C_Tax extends PO {
      * @return Tax Provider
      */
     public int getTaxProviderId() {
-        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_C_TaxProvider_ID);
+        Integer ii = getValue(I_C_Tax.COLUMNNAME_C_TaxProvider_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -257,7 +257,7 @@ public class X_C_Tax extends PO {
      * @return Alphanumeric identifier of the entity
      */
     public String getName() {
-        return (String) getValue(HasName.COLUMNNAME_Name);
+        return getValue(HasName.COLUMNNAME_Name);
     }
 
     /**
@@ -275,7 +275,7 @@ public class X_C_Tax extends PO {
      * @return Parent Tax indicates a tax that is made up of multiple taxes
      */
     public int getParent_TaxId() {
-        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_Parent_Tax_ID);
+        Integer ii = getValue(I_C_Tax.COLUMNNAME_Parent_Tax_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -286,7 +286,7 @@ public class X_C_Tax extends PO {
      * @return Rate or Tax or Exchange
      */
     public BigDecimal getRate() {
-        BigDecimal bd = (BigDecimal) getValue(I_C_Tax.COLUMNNAME_Rate);
+        BigDecimal bd = getValue(I_C_Tax.COLUMNNAME_Rate);
         if (bd == null) return Env.ZERO;
         return bd;
     }
@@ -315,7 +315,7 @@ public class X_C_Tax extends PO {
      * @return Sales Tax applies to sales situations, Purchase Tax to purchase situations
      */
     public String getSOPOType() {
-        return (String) getValue(I_C_Tax.COLUMNNAME_SOPOType);
+        return getValue(I_C_Tax.COLUMNNAME_SOPOType);
     }
 
     /**
@@ -334,7 +334,7 @@ public class X_C_Tax extends PO {
      * @return Receiving Country
      */
     public int getTo_CountryId() {
-        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_To_Country_ID);
+        Integer ii = getValue(I_C_Tax.COLUMNNAME_To_Country_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -355,7 +355,7 @@ public class X_C_Tax extends PO {
      * @return Receiving Region
      */
     public int getTo_RegionId() {
-        Integer ii = (Integer) getValue(I_C_Tax.COLUMNNAME_To_Region_ID);
+        Integer ii = getValue(I_C_Tax.COLUMNNAME_To_Region_ID);
         if (ii == null) return 0;
         return ii;
     }

@@ -316,7 +316,7 @@ public class MTax extends X_C_Tax implements I_C_Tax {
      * @return success
      */
     protected boolean afterSave(boolean newRecord, boolean success) {
-        if (newRecord && success) insert_Accounting("C_Tax_Acct", "C_AcctSchema_Default", null);
+        if (newRecord && success) insertAccounting("C_Tax_Acct", "C_AcctSchema_Default", null);
 
         return success;
     } //	afterSave

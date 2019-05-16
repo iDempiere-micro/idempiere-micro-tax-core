@@ -54,7 +54,7 @@ public class X_C_TaxCategory extends BasePOName implements I_C_TaxCategory {
      * @return Tax Category
      */
     public int getTaxCategoryId() {
-        Integer ii = (Integer) getValue(COLUMNNAME_C_TaxCategory_ID);
+        Integer ii = getValue(COLUMNNAME_C_TaxCategory_ID);
         if (ii == null) return 0;
         return ii;
     }

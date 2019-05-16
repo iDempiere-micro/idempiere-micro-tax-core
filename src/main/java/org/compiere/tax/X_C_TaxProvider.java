@@ -58,7 +58,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider {
      * @return Tax Provider Configuration
      */
     public int getTaxProviderConfigurationId() {
-        Integer ii = (Integer) getValue(COLUMNNAME_C_TaxProviderCfg_ID);
+        Integer ii = getValue(COLUMNNAME_C_TaxProviderCfg_ID);
         if (ii == null) return 0;
         return ii;
     }
@@ -69,7 +69,7 @@ public class X_C_TaxProvider extends PO implements I_C_TaxProvider {
      * @return Tax Provider
      */
     public int getTaxProviderId() {
-        Integer ii = (Integer) getValue(COLUMNNAME_C_TaxProvider_ID);
+        Integer ii = getValue(COLUMNNAME_C_TaxProvider_ID);
         if (ii == null) return 0;
         return ii;
     }

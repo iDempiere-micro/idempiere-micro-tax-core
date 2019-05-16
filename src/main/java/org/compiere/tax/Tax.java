@@ -30,7 +30,6 @@ public class Tax {
     private static CLogger log = CLogger.getCLogger(Tax.class);
 
     /**
-     * @param ctx
      * @param M_Product_ID
      * @param C_Charge_ID
      * @param billDate
@@ -83,7 +82,6 @@ public class Tax {
      *  if IsSOTrx is false, bill and ship are reversed
      *  </pre>
      *
-     * @param ctx                        context
      * @param M_Product_ID               product
      * @param C_Charge_ID                product
      * @param billDate                   invoice date
@@ -130,46 +128,10 @@ public class Tax {
                     M_Warehouse_ID,
                     billC_BPartner_Location_ID,
                     shipC_BPartner_Location_ID,
-                    IsSOTrx,
-                    trxName);
+                    IsSOTrx
+            );
         else return getExemptTax(AD_Org_ID);
     } //	get
-
-    /**
-     * @param ctx
-     * @param C_Charge_ID
-     * @param billDate
-     * @param shipDate
-     * @param AD_Org_ID
-     * @param M_Warehouse_ID
-     * @param billC_BPartner_Location_ID
-     * @param shipC_BPartner_Location_ID
-     * @param IsSOTrx
-     * @return
-     * @deprecated
-     */
-    public static int getCharge(
-
-            int C_Charge_ID,
-            Timestamp billDate,
-            Timestamp shipDate,
-            int AD_Org_ID,
-            int M_Warehouse_ID,
-            int billC_BPartner_Location_ID,
-            int shipC_BPartner_Location_ID,
-            boolean IsSOTrx) {
-        return getCharge(
-
-                C_Charge_ID,
-                billDate,
-                shipDate,
-                AD_Org_ID,
-                M_Warehouse_ID,
-                billC_BPartner_Location_ID,
-                shipC_BPartner_Location_ID,
-                IsSOTrx,
-                null);
-    }
 
     /**
      * Get Tax ID - converts parameters to call Get Tax.
@@ -186,7 +148,6 @@ public class Tax {
      *  if IsSOTrx is false, bill and ship are reversed
      *  </pre>
      *
-     * @param ctx                        context
      * @param C_Charge_ID                product
      * @param billDate                   invoice date
      * @param shipDate                   ship date (ignored)
@@ -208,25 +169,15 @@ public class Tax {
             int M_Warehouse_ID,
             int billC_BPartner_Location_ID,
             int shipC_BPartner_Location_ID,
-            boolean IsSOTrx,
-            String trxName) {
-        /* ship location from warehouse is plainly ignored below */
-        // if (M_Warehouse_ID <= 0)
-        // M_Warehouse_ID = Env.getContextAsInt("M_Warehouse_ID");
-        // if (M_Warehouse_ID <= 0)
-        // {
-        // throw new TaxForChangeNotFoundException(C_Charge_ID, AD_Org_ID, M_Warehouse_ID,
-        // billC_BPartner_Location_ID, shipC_BPartner_Location_ID,
-        // "@NotFound@ @M_Warehouse_ID@");
-        // }
+            boolean IsSOTrx) {
         int C_TaxCategory_ID = 0;
         int shipFromC_Location_ID = 0;
         int shipToC_Location_ID = 0;
         int billFromC_Location_ID = 0;
         int billToC_Location_ID = 0;
         String IsTaxExempt = null;
-        String IsSOTaxExempt = null;
-        String IsPOTaxExempt = null;
+        String IsSOTaxExempt;
+        String IsPOTaxExempt;
 
         //	Get all at once
         String sql =
@@ -239,8 +190,8 @@ public class Tax {
                         + " AND o.AD_Org_ID=?"
                         + " AND il.C_BPartner_Location_ID=?"
                         + " AND sl.C_BPartner_Location_ID=?";
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
+        PreparedStatement pstmt;
+        ResultSet rs;
         try {
             pstmt = prepareStatement(sql);
             pstmt.setInt(1, M_Warehouse_ID);
@@ -274,10 +225,7 @@ public class Tax {
                 return getExemptTax(AD_Org_ID);
             }
         } catch (SQLException e) {
-            throw new DBException(e, sql);
-        } finally {
-            rs = null;
-            pstmt = null;
+            throw new DBException(e);
         }
 
         //	Reverese for PO
@@ -316,7 +264,6 @@ public class Tax {
     } //	getCharge
 
     /**
-     * @param ctx
      * @param M_Product_ID
      * @param billDate
      * @param shipDate
@@ -366,7 +313,6 @@ public class Tax {
      *  if IsSOTrx is false, bill and ship are reversed
      *  </pre>
      *
-     * @param ctx                        context
      * @param M_Product_ID               product
      * @param billDate                   invoice date
      * @param shipDate                   ship date (ignored)
@@ -558,7 +504,7 @@ public class Tax {
             if (log.isLoggable(Level.FINE))
                 log.fine("getProduct - shipToC_Location_ID = " + shipToC_Location_ID);
         } catch (SQLException e) {
-            throw new DBException(e, sql);
+            throw new DBException(e);
         } finally {
             rs = null;
             pstmt = null;
@@ -580,7 +526,6 @@ public class Tax {
     /**
      * Get Exempt Tax Code
      *
-     * @param trxName   Transaction
      * @param AD_Org_ID org to find client
      * @return C_Tax_ID
      * @throws TaxNoExemptFoundException if no tax exempt found
@@ -604,7 +549,6 @@ public class Tax {
     /**
      * ************************************************************************ Get Tax ID (Detail).
      *
-     * @param ctx                   context
      * @param C_TaxCategory_ID      tax category
      * @param IsSOTrx               Sales Order Trx
      * @param shipDate              ship date (ignored)
@@ -651,8 +595,7 @@ public class Tax {
             log.finer("To=" + lTo);
         }
 
-        for (int i = 0; i < taxes.length; i++) {
-            MTax tax = taxes[i];
+        for (MTax tax : taxes) {
             if (log.isLoggable(Level.FINEST)) log.finest(tax.toString());
             //
             if (tax.getTaxCategoryId() != C_TaxCategory_ID
@@ -727,8 +670,7 @@ public class Tax {
         } //	for all taxes
 
         //	Default Tax
-        for (int i = 0; i < taxes.length; i++) {
-            MTax tax = taxes[i];
+        for (MTax tax : taxes) {
             if (!tax.isDefault() || !tax.isActive() || tax.getParent_TaxId() != 0) // 	user parent tax
                 continue;
             if (IsSOTrx && MTax.SOPOTYPE_PurchaseTax.equals(tax.getSOPOType())) continue;
